@@ -1,0 +1,1309 @@
+Bagian pertama = navbar Sesi
+
+Pada seri pembelajaran berikut langkah untuk membuat Website Kedai kopi kenangan senja,
+yang di dalamnya terdapat beberapa fitur di antaranya :
+1. Navbar terdiri dari judul pada bagain pojok kiri dan beberapa pilihan link ,
+  terdiri dari (Home, Tentang kami, Menu, Kontak) dan tombol searching untuk mencari produk
+  dan shoping card untuk berbelanja. Navbar bersifat fixed dan jika di scroll ke bawah
+  navbarnya menjadi transparant 
+
+2. pada bagian kedua terdapat Landing page atau hero section yang bertujuan untuk memperlihatkan
+  apa saja yang tersedia di dalam website. terdiri dari tagline website, penjelasan singkat dan 
+  tombol CTA(Call To Action).
+
+3. jika di scroll ke bawah ada bagian tentang kami, yang menjelaskan bagaiamana brand atau produk 
+  tercipta atau di buat
+
+4. jika di scroll ke bawah lagi terdapat pilihan menu dan menampilkan beberapa menu unggulan yang 
+  di bawahnya terdapat harga yang sudah di tentukan 
+
+5. dan jika di scroll lagi kebawah terdapat bagian kontak kami yang menjelaskan nama perusahaan,
+  Email perusahaan, dan nomer telphone perusahaan. dan juga menyisipkan atau memasukan alamat 
+  perusahaan berupa google maps sebagai sentuhan terakhir jika costumer ingin mengetahui lokasi
+  langsung dari perusahaan. untuk kolom atau container nama,Email dan no telp terdapat tombol 
+  Kirim pesan yang jika di klik akan langsung terhubung ke social media
+
+6. Di bagian paling bawah terdapat footer yang mengarahkan costumer ke instagram perusahaan,
+   Twitter perusahaan, Facebook Perusahaan atau media social lainnya dan beberapa bagian link 
+   yang sama seperti Navbar yaitu (Home, Tentang Kami, Menu dan Kontak), kemudain sedikit 
+   penjelasan tentang si pembuat website "Create By names" atau di kenal sebagai Copy Right
+
+7. Langkah selanjutnya membuat aplikasi tersebut dapat berjalan di semua platform yaitu Komputer/PC,
+   Laptop, Tablets, dan Smarthphone (Android/Ios) Cara ini biasa di sebut juga sebagai " Responsive 
+   Screen"
+
+Ikuti langkah berikut ini untuk memahami mekanisme pembuatan website kedai kopi kenangan senja :
+
+1. Langkah pertama buatkan folder dimana saja kemudian berinama "kopi-kenangan-senja", untuk membuka 
+   pada code editor masing masing bisa di drag and drop, atau ikuti cara berikut :
+   - klik kanan di dalam folder yang di buat yaitu "kopi-kenangan-senja" dan kemudian pilih open in terminal
+     jika menggunakan windows 11, dan ketikan sintaks "code .", maka akan di bukakan ke visual studio 
+
+2. langkah kedua buatkan file bernama "index.html" pada vscode dengan cara klik di bagian menu pojok kiri 
+   terdapat gambar file di samping folder dan ketikan "index.html" dan enter , untuk membuatkan format html 
+   secara otomatis dengan mengetik tanda seru "!" kemudian tab.
+
+   Catatan :
+   - berikut adalah tools atau extensi yang di gunakan dalam pembuatan program ini yang bertujuan untuk
+     merapihkan kode secara otomatis ketika melakukan save
+
+   - extensi tersebut bernama prettier vs code dowload dan akan melakukan instalasi secara otomatis
+
+   - untuk mensetting atau konfigurasi prettier ketik berbarengan "CTRL + ," untuk membuka konfigurasi dan
+     ketik format dan cari nama "Format On Save" dan centang kolomnya
+
+   - kemudian ketikan kembali di kolom serach tuliskan "formatter" cari nama "Editor: Default Formater" 
+     pada bagian listnya isikan dengan "prettier". save dan coba acak susunan html yang di buat sebelumnya 
+     secara otomatis jika mengetik berbarengan "CTRL + S" untuk menyimpan maka kode tersebut akan di rapihkan
+     secara otomatis 
+
+3. langkah selanjutnya masih di dalam file inde.html pada vs code ubah title "Document" menjadi "Kopi Kenangan Senja"
+   dan tuliskan sintaks berikut di bawah title elemnt html tersebut :
+   <link rel="stylesheet" href="css/style.css">
+   save program "CTRL + S"
+
+4. Kemudian buatkan folder baru di dalam folder "kopi-kenagan-senja" bernama "css" dengan huruf kecil yang di dalamnya
+   terdapat file bernama style.css.
+
+5. langkah selanjutnya mencari font yang sesuai untuk pembuatan website di dalam situs "google-fonts", jika sudah di buka
+   ketik di kolom pencarian "poppins" dan berikut adalah items pada poppins yang di butuhkan dalam pembuatan website :
+   - Thin 100 kemudian klik tanda plus di pojok kanan 
+   - Light 300 kemudian klik tanda plus di pojok kanan 
+   - Regular 400 kemudian klik tanda plus di pojok kanan 
+   - Bold 700 kemudian klik tanda plus di pojok kanan 
+   jika sudah pergi kebagian navbarnya google fonts dan pilih Views selected family dan copy bagian cssnya yang di simpan 
+   di dalam head html. kembali ke index.html dan pastekan sebelum pemanggilan file css dan sesudah element tittle .
+
+6. langkah selanjutnya mencari icons pada platform situs "feathericons.com", klik get started kemudian akan di arahkan pada 
+   link "github.com/feathericons" terdapat 2 opsi untuk instalasi yaitu lewat npm(javascript) atau lewat CDN(Content Delivery Network)
+   . pada kasus ini menggunakan CDN cukup copykan sintaks yang menghubungkan link tersebut. dan pastekan sebelum pemanggilan css dan sesudah 
+     pemanggilan google fonts 
+   . Kemudian balik ke dokumentasi github dan copykan bari javascriptnya yang berelement <script></script> beserta isinya, pastekan di paling bawah element 
+     body atau sebelum tutup element body </body>
+
+7. langkah selanjutnya membuat variable untuk menyimpan warna pada css, dan menambahkan reset(bertujuan untuk mensetting element htmlnya sesuai keinginan)
+   . buka file style.css dan ketikan sitaks berikut ini, untuk membuat variabel warna :
+     :root{
+       --primary: #b6895b;
+       --bg: #010101;
+     }
+     penjelasan sintaks :root :
+     - sintaks root bermaksud untuk membuat variabel buatan pada css yang akan di panggil dengan maksud mempermudah penamaan
+     - --primary: #b6895b; adalah warna coffe yang jika ingin digunakan ketikan sintaks "var(--primary)" pada element yang ingin digunakan 
+     - --bg: $010101; adalah warna hitam peka yang jika ingin digunakan ketikan sintaks "var(--bg)" pada element yang ingin digunakan 
+
+   . masih di dalam file style.css buatkan sintaks untuk reset di bawah sintaks variabel pembuatan warna :
+     * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       outline: none;
+       border: none;
+       text-decoration: none;
+     }
+     Penjelasan sintaks reset :
+     - margin = ukuran margin di setting 0 agar di berikan kebebasan dalam mengatur margin tanpa memperdulikan ukuran lainnya 
+     - padding = ukuran padding di setting 0 agar di berikan kebebasan dalam mengatur padding tanpa memperdulikan ukuran lainnya 
+     - box-sizzing : di setting dengan "border-box" bertujuan untuk agar tidak perlu mengatur dimensi dari element saat di kasih padding atau border 
+     - outline = di setting none, berguna untuk memberikan style untuk form atau button 
+     - border =  di setting none, berguna agar memiliki kendali atas bordernya      
+     - text-decoration = di setting none, bertujuan untuk saat pembuatan link tidak di berikan garis bawah 
+   
+   . kemudian buatkan pemanggilan body pada file style.css dan tuliskan sintaks berikut ini :
+     body{
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg);
+        color: #fff;
+     }
+     Penjelasan sintaks body :
+     - font-family: 'Poppins', sans-serif; bertujuan untuk mengatur teks semuanya agar menggunakan fonts poppins dan jika terjadi kesalahan maka akan menggunakan sans-serif
+     - background-color: var(--bg); bertujuan untuk memberikan warna belakang atau warna website yang telah di buat yaitu pada root berwarna hitam 
+     - color: #fff; bertujuan untuk memberikan warna pada setiap tulisan yaitu warna putih 
+
+     save dan coba jalankan program, pergi ke index.html klik kanan, dan buka open with live server jika berhasil maka ketika di buka website yang dibuat akan berwarna hitam, 
+     itu karena background-color di setting dengan var(--bg) yang telah di tentukan dengan warna hitam
+
+8. langkah selanjutnya membuatkan navbar fitur yang di jelaskan di awal sebelum membuat program, ikuti langkah berikut ini :
+   1. buka file index.html tuliskan sintaks berikut ini di dalam body dan tuliskan sebelum pemanggilan javascript untuk feathericons:
+      <nav class="navbar">
+        <a href="#" class="navbar-logo">kenangan<span>senja</span>.</a>
+
+        <div class="navbar-nav">
+            <a href="#">Home</a>
+            <a href="#about">Tentang kami</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Kontak</a>
+        </div>
+
+        <div class="navbar-extra">
+            <a href="#" id="search"><i data-feather="search"></i></a>
+            <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+      </nav>
+    
+    save dan coba jalankan program 
+
+   2. langkah selanjutnya buka file style.css dan ketikan sintaks berikut ini di bawah pemanggilan body :
+     .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.4rem 7%; 
+        background-color: rgba(1, 1, 1, 0.8);
+        border-bottom: 1px solid #513c28;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+     }
+
+     Penjelasan sintaks .navbar{} =
+     - display: flex; bertujuan untuk mengatur element agar sejajar secara keseluruhan dan juga mudah di atur sesuai keinginan
+     - justify-content: space-between; bertujuan untuk mengatur spasi atau jarak antara element secara horizontal
+     - align-items: center; bertujuan untuk mengatur spasi atau jarak antara element secara vertikal
+     - padding: 1.4rem 7%; 
+           - rem (root em) adalah perhitungan pada default ukuran font-size yaitu 16px berarti jika 1.4 artinya 1.4 x 16 
+           - 7% adalah ukuran yang jika di buka pada layar apapun(pc, laptop, tablet dan smarthphone) akan menyesuaikan layar sebanyak 7%  
+     - background-color: rgba(1, 1, 1, 0.8); bertujuan agar navbar menjadi transparant dengan warna 1, 1, 1, (warna hitam), dan 0.8(tingkat transparant)
+     - border-bottom: 1px solid var(--primary); bertujuan untuk memberikan garis pada navbar yang di buat dengan 1px(ketebalan baris), solid(bentuk dari garis) dan
+                                                #513c28 (warna coffe tetapi sedikit lebih gelap)
+     - position: fixed; bertujuan untuk menetapkan posisi navbar ketika di scroll
+     - top: 0; agar ukurannya di tarik ke atas layar
+     - left: 0; agar ukurannya di tarik ke kiri layar
+     - right: 0; agar ukurannya di tarik ke kanan layar
+     - z-index: 9999; agar posisi navbar tidak ada yang menyaingi
+     save dan jalankan program
+
+    3. langkah selanjutnya membuat logo navbar, masih pada file style.css ketikan sintaks berikut ini setelah css .navbar{} :
+
+       sebelum menuliskan sintaks tambahkan, bold 700 italic pada pemanggilan googlefonts dan copykan sintaks link dan pastekan di tempat sebelumnya. caranya cukup klik
+       add more styles dan cari bold 700 italic klik + di pojok kanan dari penamaan bold 700 italic. berikut adalah sintaks cssnya :
+
+       .navbar .navbar-logo{
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        font-style: italic;
+       }
+
+       Penjelasan:
+       - font-size: 2rem; untuk menentukan ukuran huruf pada class navbar-log menjadi 2 x 16 = 32px
+       - font-weight: 700; untuk menentukan ketebalan huruf pada class navbar dengan mengambil poppins yaitu 700
+       - color: #fff; untuk menentukan tulisan menjadi berwarna putih
+       - font-style: italic; untuk membuat font menjadi miring(italic) sesuai dengan poppins yang di ambil yaitu bold 700 italic 
+
+    4. membuat warna pada bagian class navbar-logo yaitu element span menjadi warna coffe, berikut adalah sintaksnya :
+       .navbar .navbar-logo span{
+        color: var(--primary);
+       }
+
+       Penjelasan sintaks .nnavbar .navbar-logo span{} :
+       - color: var(--primary); untuk menjadikan tulisan pada span menjadi tulisan berwarna coffe yang sudah dibuatkan pada root css 
+
+    5. langkah selanjutnya mengatur baris menu yang jika di pencet akan mengarahkan ke link tertentu yaitu (Home, tentang kami, Menu, Kontak), berikut adalah sintaksnya :
+       .navbar .navbar-nav a{
+        color: #fff;
+        display: inline-block;
+        font-size: 1.4rem;
+        margin: 0 1rem;
+       }
+
+       Penjelasan sintaks .navbar .navbar-nav a :
+       - color: #fff; untuk menjadikan warna tulisan atau teks menjadi putih
+       - display: inline-block; untuk menjadikan margin a yang tadinya inline(tidak bisa mensetting margin) menjadi inline-block(agar bisa mensetting margin)
+       - font-size: 1.3rem; artinya ukuran default 16px di kalikan 1.3 
+       - margin: 0 1rem; artinya = - 0 untuk mengatur atas dan bawah margin 
+                                   - 1rem artinya kiri dan kanan menjadi 16px karena 1 x 16
+
+    6. langkah selanjut jika a di hover atau mouse berada di atas link a yaitu(Home, tentang kami, Menu, Kontak), warnanya akan berubah. berikut adalah sintaksnya :
+       .navbar .navbar-nav a:hover{
+          color: var(--primary);
+       }
+
+       Penjelasan sintaks .navbar .navbar-nav a:hover{} :
+       - color: var(--primary); untuk menjadikan tulisan ketika mouse berada di atas (Home, tentang kami, Menu, Kontak) menjadi warna coffe
+
+    7. langkah selanjutnya membuatkan pseudo element bertujuan agar ketika di sorot (Home, tentang kami, Menu, Kontak) akan di buatkan garis bawah, berikut adalah sintaksnya :
+       .navbar .navbar-nav a::after{
+        content: '';
+        display: block;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.1rem solid var(--primary);
+        transform: scaleX(0);
+        transition: 0.2s linear;
+       }
+       
+       Penjelasan sintaks .navbar .navbar-nav a::after{} :
+       - content: ''; untuk mengatur dimensi 
+       - display: block; untuk mengatur susunannya menjadi block juga bertujuan agar bisa menggunakan margin 
+       - padding-bottom: 0.5rem; untuk mengatur padding bawah menjadi ukuran 8px karena 0.5 x 16 = 8px 
+       - border-bottom: 0.1rem solid var(--primary); untuk mengatur border bawah menjadi 1.6px karena 0.1 x 16 = 1.6px dan menjadikan bentuk bordernya solid menggunakan warna coffe dari 
+                                                     var(--primary)
+       - transform: scaleX(0); untuk mengatur ukuran sumbu x menjadi 0
+       - transition: 0.2s linear; untuk memberikan efek ketika mouse berada di atas akan memberikan jeda selama 0.2 detik dan baru menampilkan peseudonya
+
+    8. langkah selanjutnya membuat element a pada navbar-nav ketika di hover akan menampilkan kembali psudonya, berikut adalah sintaksnya :
+       .navbar .navbar-nav a:hover::after{
+          transform: scaleX(0.5);
+       }
+
+       Penjelasan sintaks .navbar .navbar-nav a:hover::after{} :
+       - transform: scaleX(0.5); untuk menampilkan kembali pseudo yang di hilangkan tetapi tidak penuh hanya setengahnya  
+
+    9. Langkah selanjutnya merapihkan logo icons dan melakukan perubahan seperti bagian menu headbar di atas, berikut adalah sitaksnya :
+       .navbar .navbar-extra a {
+         color: #fff;
+         margin: 0 0.5 rem;
+       }  
+
+       Penjelasan .navbar .navbar-extra a{} :
+       - color: #fff; menjadikan warna teks atau warna icons tersebut menjadi warna putih 
+       - margin: 0 0.5rem; menjadikan ukuran margin atas dan bawah 0 kemudian kiri dan kanan 8px karena 0.5 x 16 = 8 
+
+    10. langkah selanjutnya membuat icon shopping cart, search dan hamburger menu ketika di hover akan menampilkan warna yang berbeda, berikut adalah sintaksnya :
+       .navbar .navbar-extra a:hover {
+         color: var(--primary);
+       }
+
+       Penjelasan .navbar .navbar-extra a:hover{} :
+       - color: var(--primary); membuat perubahan warna menjadi coffe ketika mouse berada di atas icon 
+
+    11. langkah selanjutnya membuat logic seperti berikut untuk layar komputer/pc hamburger menu tidak akan di tampilkan, sedangkan jika layarnya kecil hamburger menu di tampilkan 
+        dan class dengan nama navbar-nav akan di hilangkan di gantikan menjadi hamburger menu, berikut adalah sintaksnya :
+        #hamburger-menu{
+          display: none;
+        }
+
+    12. langkah selanjutnya membuat responsive layar untuk layar yang berbeda, langkah ini akan menggunakan media queries. dan setiap membuat ini letakan selalu di bagian bawah css pada
+        file style.css, Berikut adalah sintaksnya:
+        /* media queries */
+
+        /* Laptop */
+        @media (max-width: 1366px) {
+          html {
+            font-size: 75%;
+          }
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+          html {
+            font-size: 62.5%;
+          }
+          #hamburger-menu{
+            display: inline-block;
+          }
+          .navbar .navbar-nav {
+            position: absolute;
+            top: 100%;
+            right: -100%;
+            background-color: #fff;
+            width: 30rem;
+            height: 100vh;
+            transition: 0.3s;
+          }
+
+          .navbar .navbar-nav.active {
+            right: 0;
+          }
+        }
+
+        /* Mobile Phone */
+        @media (max-width: 450px) {
+          html {
+            font-size: 55%;
+          }
+        }
+
+        Penjelasan sintaks media queries :
+        * Pada Laptop:
+          - @media (max-width: 1366px) {} untuk membuat ukuran akan berubah jika ukuran tersebut 1366px 
+          - html{} memanggil element html 
+            - font-size: 75%; untuk membuat ukuran teks akan mengecil sejauh 75%
+
+        * Pada Tablets:
+          - @medua (max-width: 768px) {} untuk membuat ukuran akan berubah jika ukuran tersebut 768px 
+          - html{} untuk memanggil element html 
+            - font-size: 62.5%; untuk membuat ukuran teks akan selalu 62.5%
+          - #hamburger-menu{} untuk memanggil element html dengan id hamburger-menu 
+            - display: inline-block; untuk mengembalikan element tersebut yang awalnya display: none;
+          - .navbar .navbar-nav {} untuk memanggil element html secara sepesifik (parent-child) dengan class navbar-nav 
+            - position: absolute; untuk merubah posisinya agar di paksa tidak mengikuti induxnya yaitu element div dengan class: navbar 
+            - top: 100%; untuk membuat ukuran atasnya akan selalu 100% mengikuti ukuran layar yang di tentukan
+            - right: -100%; untuk membuat ukuran kanan akan keluar ke kanan dari div dengan class: navbar
+            - background-color: #fff; menjadikan warna latar menjadi putih 
+            - width: 30rem; untuk membuat lebar dari class navbar-nav menjadi 480px karena 30 x 16 = 480px 
+            - height: 100vh; untuk membuat tinggi dari layar akan sesuai dengan ukuran layar yang di tentukan ini sama saja dengan % tetapi lebih efektif digunakan dalam media queries 
+            - transition: 0.3s; untuk menambahkan feel ketika di klik akan terjadi transisi sebanyak 0.3 detik seperti ada jeda saat di tampilkan class activenya 
+          - .navbar.navbar-nav.active{} memanggil kelas .navbar-nav yang terdapat class .active
+            - right: 0; untuk membuat rigth yang awalnya -100% akan menjadi 0 kembali pembungkusnya
+
+        * pada kasus ini membutuhkan javascript karena akan membuat "navbar-nav" menjadi active ketika di klik dan ketika di klik lagi activenya akan di hilangkan.
+          1. langkah pertama pergi ke index.html dan buatkan element html di paling bawah setelah pemanggilan javascript dari feathericons , dan tuliskan sintaks berikut ini:
+             <script src="js/script.js"></script>
+
+          2. kemudian buatkan folder di dalam folder kopi-kenangan-senja berbarengan dengan folder css berikan nama "js" yang di dalamnya terdapat file bernama script.js 
+
+          3. langkah selanjutnya buka file script.js untuk membuat toggle yang mengartikan awalnya tidak ada menjadi ada dan yang ada menjadi tidak ada. tuliskan sintaks berikut di dalam 
+             file script.js:
+             //toggle class active
+             const navbarNav = document.querySelector('.navbar-nav');
+             document.querySelector('#hamburger-menu').onclick = () => {
+              navbarNav.classList.toggle('active');
+             };
+
+          save dan jalankan coba di ukuran tablets jika berhasil maka ketika mengklik menu atau hamburger menu akan keluar class navbar-nav yang berwarna putih tersebut 
+
+    13. langkah selanjutnya memperbaiki menu yang berada pada class navbar-nav yang jika di click akan mengadakan class active dan navbar-nav tersebut akan berwarna putih : 
+        - langkah pertama pergi ke file style.css dan tambahkan pada media queries tablet di bawahnya, ketikan sintaks berikut ini:
+          .navbar .navbar-nav a {
+            color: var(--bg);
+            display: block;
+            margin: 1.5rem;
+            padding: 0.5rem;
+            font-size: 2 rem;
+          }
+
+          Penjelasan sintaks :
+          - color: var(--bg); untuk menjadikan tulisan berwarna yang di panggil yaitu var(--bg) berwarna hitam yang di tentukan 
+          - display: block; untuk membuat susunan class navbar-nav yaitu a menjadi block sehingga jika di tampilkan akan menyusun ke bawah 
+          - margin: 1.5rem; untuk membuat segala sisi dari elemnt html a yang terdapat pada class navbar-nav menjadi 1.5 rem atau 1.5 x 16 = 24 px
+          - font-size: 2 rem; untuk membuat ukuran tulisan pada class navbar-nav sebesar 2 rem atau 2 x 16 = 32px
+          
+          save dan jalankan pada ukuran tablet jika berhasil maka akan terlihat perubahanpada tulisannya
+
+        - Langkah kedua masih di dalam style.css pada media queries di bagian tablet tambahkan sintaks berikut ini untuk mengatur tampilan class navbar-navnya menjadi 
+          sedikit lebih rapih, atau cara ini di kenal dengan merapihkan transform originsnya menjadi lebih rapih :
+          .navbar .navbar-nav a::after {
+            transform-origin: 0 0;
+          }
+          .navbar .navbar-nav a:hover::after {
+            transform scaleX(0.2);
+          }
+          Penjelasan sintaks .navbar .navbar-nav a::after :
+           - transform-origin: 0 0; untuk membuat baris yang terdapat di bawah menjadi bergeser ke kiri 
+          Penjelasan sintaks .navbar .navbar-nav a:hover ::after :
+           - transform scaleX(0.2); untuk merubah ukuran garis bawah yang awalnya 0.5 pada ukuran tablet menjadi 0.2
+          
+          save dan jalankan jika berhasil ketika mengklik beberapa menu maka akan keluar sedikit animasi garis bawah yang menandakan menu apa yang sedang ingin di gunakan 
+
+    14. Langkah selanjutnya membuat logic menu atau hamburger menu ketika di klik sembarang akan menutup menunya, ini hanya berlaku ketika menu tersebut di buka pada tablet ke bawah
+        Berikut adalah caranya :
+        - buka file javascript script.js dan tambahkan sintaks berikut ini di bawahnya logic ketika menu di klik :
+          // klik di luar sidebar untuk menghilangkan nav 
+          const hamburger = document.querySelector('#hamburger-menu');
+
+          document.addEvenetListener('click', function(e) {
+            if( !hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+              navbarNav.classList.remove('active');
+            }
+          }) 
+
+          Penjelasan sintaks:
+          - const hamburger = document.querySelector('#hamburger-menu'); untuk mengambil id dengan nama hamburger-menu dan di jadikan variabel bernama hamburger yang akan di gunakan oleh 
+                                                                       javascript 
+          - document.addEvenetListener('click', function(e) {
+            if( !hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+              navbarNav.classList.remove('active');
+            }
+          }) 
+            Adalah sebuah function yang menargetkan document atau body dari html ketika di click akan menjalankan function tersebut yang berisikan perbandingan if yang isinya :
+            - jika selain id "hamburger-menu" dan class "navbar-nav" di click akan menghapus toggle class tambahan yaitu class "active"  
+
+          save dan coba jalankan program di ukutan tablet jika berhasil maka ketika di klik selain pada menu dan bagian di dalam hamburger menu dalam kondisi terbuka akan menutup 
+          class navbar-nav yang berwarna putih tersebut 
+
+
+
+Bagian kedua = HERO Section 
+
+
+1. langkah pertama buka File index.html dan tuliskan sintaks berikut ini setelah logika membuat navbar :
+   - Sebelum itu pada bagian navbar-nav ubah sedikit perubahan pada bagian home yang akan memberikan aksi ketika di klik ke laman yang di maksud akan langsung tertuju berikut sintaksnya :
+          <a href="#home">Home</a>
+   Berikut adalah sintaks HTML untuk membuat HERO Section :
+    <section class="hero" id="home">
+        <main class="content">
+            <h1>Mari Nikmati Secangkir <span>Kopi</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ipsam?</p>
+            <a href="#" class="cta">Beli Sekarang</a>
+        </main>
+    </section>
+
+    save program kemudian buka website platform bernama "https://unsplash.com/photos/tNALoIZhqVM" save dan download gambar coffe tersebut dengan mengklik download dan pilih medium '
+    kemudian save program dan balik gambar atau flip gambar di bagian edit foto kemudian save dengan nama "header-bg.jpeg" . setelah itu buka file project dan buatkan folder img berbarengan 
+    dengan folder css dan javascript masukan gambar tersebut di dalam folder imgnya 
+
+2. langkah kedua pergi kebagian file style.css buka dan ketika sintaks berikut ini sebelum media queries : 
+   .hero{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('../img/header-bg.jpeg');
+    background-repeat: no repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+   }
+
+   Penjelasan sintaks:
+   - min-height: 100vh; untuk membuat tinggi dari class hero penuh satu layar ini sama saja seperti 100% tetapi lebih akurat vh karena khusus untuk tinggi 
+   - display: flex; untuk mengatur apapun yang berada pada clss hero akan menjadi flexibel sesuai dengan ukuran layar 
+   - align-items: center; untuk mengatur letak element berada di tengah tengah secara vertikal 
+   - background-image: url('img/header-bg.jpeg'); untuk memanggil gambar yang di inginkan yaitu "header-bg.jpeg" dan di jadikan sebagai gambar latar websitenya 
+   - background-repeat: no repeat; untuk menjadikan gambar latar tersebut tidak di panggil berulang atau di jadikan gambarnya berlipat lipat
+   - background-size: cover; untuk menjadikan gambarnya ukurannya maksimal
+   - background-position: center; untuk menjadikan gambar latar selalu berada di tengah tengah
+   - position: relative; untuk membuat div dengan class hero berada satu tingkat di atas dari induxnya tetapi tetap terkait
+
+3. Langkah selanjutnya membaut gradasi hitam di bawah gambar yang bertujuan untuk agar gambarnya terlihat menyatu pada design keseluruhan : 
+   - langkah pertama coba tambahkan sintaks berikut ini pada pemanggilan body di file style.css, berikut adalah sintaksnya :
+     body{
+      ..
+      ..
+      min-height: 2000px;
+     }
+     save dan coba buka file index.html untuk melakukan perbandingan jika di lihat bahwa gambar tidak menyatu dengan design, sintaks tersebut hanya uji coba saja untuk
+     memahami mekanisme yang di maksud suatu saat sintaks tersebut akan di hapus
+
+   - Langkah selanjutnya membuat element psudo untuk melakukan logic tersebut yang membuat gambar menjadi menyatu dengan design, buka file style.css dan tuliskan setelah perancangan 
+     design dari class bernama hero. berikut sintaksnya :
+     .hero::after{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 30%;
+        bottom: 0;
+        background: linear-gradient(0deg, rgba(1, 1, 3, 1) 8%, rgba(255, 255, 255, 0) 50%);
+     }
+
+     Penjelasan sintaks:
+      - content: ''; untuk bisa di kasih style 
+      - display: block; untuk membuat psudo element yaitu display pada div dengan class hero menjadi block
+      - position: absolute; untuk menjadikan psudo element keluar dari induxnya tetapi masih menjadi bagian dari div hero 
+      - width: 100%; untuk membuat psudo element memiliki lebar sepanjang halamanya dan akan tetap mengikuti 
+      - head: 30%; untuk membuat psudo element memiliki tinggi setinggi 30% dari halamanya dan akan tetap mengikuti 
+      - bottom: 0; untuk menjadikan element berada di bawah dari pembungkusnya yaitu element section dengan class hero 
+      - background: linear-gradient(0deg, rgba(1, 1, 3, 1) 8%, rgba(255, 255, 255, 0) 50%); untuk membuat psudo element memiliki warna tertentu di keadaan tertentu dalam kasus ini 3% dan 25%
+
+    Save dan jalankan index.html jika berhasil maka akan terlihat bahwa gambar menyatu dengan main dengan class contentnya 
+
+4. Langkah selanjutnya memperbaiki konten, ketikan sintaks berikut ini :
+   .hero .content{
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+   }
+
+   Penjelasan sintaks:
+   - padding: 1.4rem 7%; untuk membuat padding (ruang kosong di sekitak konten setelah margin), tinggi dan bawahnya 1.4rem (22.4px) dan kiri dan kanannya di atur 7% mengikuti ukuran layar 
+   - max-width: 60rem; untuk menjadikan element main dengan class content ukuran lebarnya maksimal 60rem(960)
+
+5. Langkah selanjutnya mengatur h1, tuliskan sintkas berikut ini di bawah pengaturan element main dengan class content: 
+   .hero .content h1{
+    font-size: 5em;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    line-heigt: 1.2;
+   }
+
+   penjelasan sintaks :
+   - font-size: 5em; untuk mengatur ukuran font(teks) dengan satuan em(untuk tulisan) menjadi 5em(80px)
+   - color: #fff; untuk menjadikan warna tulisan berwarna putih yang di tentukan 
+   - text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5); untuk menjadikan tulisan memiliki gradasi atau bayangan berikut penjelasannya :
+     - nilai 1px = offset-x 
+     - nilai 1px = offsite-y 
+     - nilai 3px = Blur radius
+     - rgba(1, 1, 3, 0.5) = warna yang di atur dengan transparasinya
+   - line-heigt: 1.2; untuk mengatur jarak tinggi antara tulisan sebanyak 1.2(1.2 x 16 = 19.2px)
+
+   Save dan coba jalankan index.html untuk melihat hasilnya
+
+6. langkah selanjutnya membuat style pada span yang terdapat pada class content, berikut adalah sintaksnya :
+   .hero .content h1 span{
+    color: var(--primary);
+   }
+
+   Penjelasan sintaks:
+   - color: var(--primary); untuk membuat tulisan pada span menjadi warna yang telah di tentukan 
+   
+  save dan jalankan program 
+
+7. Langkah selanjutnya mengatur paragraf pada class content, berikut adalah sintaksnya :
+  .hero .content p {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    line-height: 1.4;
+    font-weight: 100;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  }
+
+  Penjelasan sintaks:
+  - font-size: 1.6rem; untuk membuat ukuran dari font(teks) menjadi 1.6rem(25.6px)
+  - margin-top: 1rem; untuk membuat margin yang membungkus element p ukurannya menjadi 1rem(16px)
+  - line-height: 1.4; untuk membuat tulisan tinggi antara baris tulisannya menjadi 1.4(22.4px);
+  - font-weight: 100; untuk mengatur ketebalan font(teks)
+  - text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5); untuk menjadikan tulisan memiliki gradasi atau bayangan berikut penjelasannya :
+     - nilai 1px = offset-x 
+     - nilai 1px = offsite-y 
+     - nilai 3px = Blur radius
+     - rgba(1, 1, 3, 0.5) = warna yang di atur dengan transparasinya
+
+8. langkah selanjutnya mengatur tombol CTAnya (Call To Action), berikut adalah sintaksnya :
+  .hero .content .cta {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    color: #fff;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  }
+
+  Penjelasan sintaks: 
+  - display: inline-block; untuk menjadikan cta agar bisa di atur margin dan paddingnya karen defaultnya element a adalah block tidak bisa mengatur margin dan padding 
+  - margin-top: 1rem; untuk mengatur ukuran marginnya adalah 1 rem(16px)
+  - padding: 1rem 3rem; untuk mengatur atas dan bawah padding 1rem(16px) dan kiri dan kanan 3rem(48px)
+  - font-size: 1.4rem; untuk mengatur ukuran font(teks) sebanyak 1.4rem(22.4px)
+  - color: #fff; untuk mengubah warna font(teks) menjadi warna putih atau warna yang di tentukan
+  - background-color: var(--primary); untuk menjadikan warna latar menjadi warna yang telah di tentukan 
+  - border-radius: 0.5rem; untuk mengatur border radius menjadi 0.5rem(8px)
+  - box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5); untuk menjadikan box yang mengelilingi CTA (Call To Action) menjadi :
+     - nilai 1px = offset-x 
+     - nilai 1px = offsite-y 
+     - nilai 3px = Blur radius
+     - rgba(1, 1, 3, 0.5) = warna yang di atur dengan transparasinya
+  
+  save dan jalankan index.htmlnya jika berhasil ketika kursor berada di atas CTA akan berubah ini menandakan bahwa CTA berhasil di buat dan tidak ada pengaruhnya
+
+9. Langka selanjutnya membuatkan media queri pada element section dengan class hero, sebenernya sudah di tangani dengan baik oleh persentase ukuran font. masalah ini terjadi ketika 
+   ukuran smarthpone tulisan tersebut warnanya menyatu dengan warna gelas coffe sehingga susah di baca oleh user, teknik ini di sebud dengan mix-blend-mode, berikut adalah sintaksnya :
+   - karena kasus tersebut terdapat di element p html atau paragraf maka tambahkan sintaks berikut ini di dalamnya, maka akan menjadi : 
+    .hero .content p {
+      ..
+      ..
+      ..
+      mix-blend-mode: difference;
+    }
+
+    save dan jalankan index.html coba kecilkan ukuran layarnya jika berhasil maka tulisan akan tetap terbaca meskipun di atas gelas kopinya
+    
+
+
+Bagian ketiga = About section 
+
+1. Pergi ke index.html dan tuliskan sintaks berikut ini :
+    <section id="about" class="about">
+        <h2><span>Tentang</span> kami</h2>
+    </section>
+   Save program 
+
+2. Langkah selanjutnya buka CSS file "style.css", dan tuliskan sintaks berikut sebeleum media querie :
+  .about{
+     padding: 10rem 7% 1.4rem;
+  }
+
+  Penjelasan sintaks:
+  - padding: 8rem 7% 1.4rem;
+    - 8rem = untuk membuat kondisi ketika di klik link yang mengarah ke id about tulisannya tidak akan tertutup oleh navbar dan akan di bawahnya sebanyak 8rem(128px)
+    - 7% = untuk membuat sisi kiri dan kanan padding di berikan jarak sebanyak 7% dari induknya yaitu section dengan class about 
+    - 1.4rem = untuk membuat ukuran bawah paddingnya sebesar 1.4rem(22.4px)
+
+ Save dan coba jalankan index.html ketika navbar tentang kami di klik maka akan mengarah langsung ke bagian about dengan judul tentang kami, jika berhasil maka tulisan tidak akan 
+ tertimpa oleh navbar 
+
+3. Langkah selanjutnya memperbaiki teks h2 pada section dengan class about, berikut adalah sintaksnya :
+  .about h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+  }
+
+  Penjelasan sintaks :
+  - text-align: center; untuk membuat posisi tulisan berada di tengah
+  - font-size: 2.6rem; untuk membuat font(teks) ukurannya menjadi 2.6(41.6px)
+  - margin-bottom: 3rem; untuk membuat margin yang membungkus font ukuran bawahnya menjadi 3rem(48px)
+
+4. lankah selanjutnya memberikan warna pada element span di dalam h2 pada class about :
+  .about h2 span{
+    color: var(--primary)
+  }
+
+5. langkah selanjutnya menambahkan tulisan di sebelah kanan class about dan di kirinya terdapat gambar tambahkan sintaks berikut ini pada file index.html, maka sintaks keseluruhanya menjadi :
+    - Lankah pertama mencarikan gambar untuk di letakan di kiri about, buka website "https://unsplash.com/photos/ZLqxSzvVr7I", klik download dan pilih ukuran small.
+      rename filenya menjadi "tentang-kami" dan taruh di dalam folder projek "kenangan-senja" di dalam folder img pastekan filenya. ketikan sintaks html berikut ini
+      dibawah element section dengan class hero :
+
+    <section id="about" class="about">
+        <h2><span>Tentang</span> kami</h2>
+
+        <div class="row">
+            <div class="about-img">
+                <img src="img/tentang-kami.jpg" alt="Tentang kami">
+            </div>
+            <div class="content">
+                <h3>Kenapa memilih kopi kami?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos in ad totam laborum dolore ex.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa consequatur blanditiis repellat,
+                    quibusdam ad explicabo possimus doloremque exercitationem necessitatibus eligendi.</p>
+            </div>
+        </div>
+    </section>
+
+   Save dan coba jalankan index.html 
+
+6. Lankah selanjutnya mengatur css agar tampilannya menarik, tuliskan sintaks berikut ini :
+   .about .row{
+    display: flex;
+   }
+
+   Penjelasan sintaks: 
+   - display: flex; untuk mengatur agar div dengan class row bisa menjadikan div class about-img dan div class content posisinya bersebelahan
+
+7. Langkah selanjutnya mengatur flex grow dan flex shrinknya tuliskan sintaks berikut ini : 
+
+  Sintaks untuk div dengan class about-img 
+   .about .row .about-img{
+    flex: 1 1 45rem;
+   }
+
+   Penjelasan sintaks:
+   - flex: 1 1 45rem; 
+      - Nilai 1 pada sintaks tersebut merupakan nilai untuk flex-grow. Ini menentukan
+        seberapa banyak ruang fleksibel yang akan diberikan ke elemen jika ada ruang kosong 
+        dalam fleksible kontainer. Nilai 1 menunjukkan bahwa elemen akan mendapatkan semua
+        ruang fleksibel yang tersedia.
+      - Nilai 1 berikutnya pada sintaks adalah untuk flex-shrink. Ini menentukan seberapa 
+        banyak elemen dapat mengecil jika terdapat keterbatasan ruang dalam kontainer fleksibel. 
+        Nilai 1 menunjukkan bahwa elemen akan mengecil secara proporsional dengan elemen 
+        lain jika terdapat keterbatasan ruang dalam kontainer fleksibel.
+      - Nilai terakhir pada sintaks, yaitu 45rem, adalah nilai untuk flex-basis. Ini menentukan 
+        ukuran awal elemen sebelum fleksibilitas diterapkan. Dalam kasus ini, elemen memiliki 
+        ukuran awal 45rem, yang setara dengan 720 piksel jika ukuran font root-nya adalah 16 
+        piksel.
+      - Secara keseluruhan, sintaks flex: 1 1 45rem; dapat diartikan bahwa elemen akan 
+        mendapatkan semua ruang fleksibel yang tersedia, dan jika terdapat keterbatasan ruang, 
+        elemen akan mengecil secara proporsional dengan elemen lainnya. Selain itu, elemen akan 
+        memiliki ukuran awal sebesar 45rem.
+
+  Sintaks untuk img 
+  .about .row .about-img img{
+    width: 100%;
+  }
+
+  Penjelasan sintaks:
+  - width: 100%; untuk memenuhi satu bagian flexnya
+
+  Sintaks untuk div dengan class content
+  .about .row .content{
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+  }
+
+  Penjelasan sintaks:
+  - flex: 1 1 35rem;
+   - Nilai 1 pada sintaks tersebut merupakan nilai untuk flex-grow. Ini menentukan
+     seberapa banyak ruang fleksibel yang akan diberikan ke elemen jika ada ruang kosong 
+     dalam fleksible kontainer. Nilai 1 menunjukkan bahwa elemen akan mendapatkan semua
+     ruang fleksibel yang tersedia.
+   - Nilai 1 berikutnya pada sintaks adalah untuk flex-shrink. Ini menentukan seberapa 
+     banyak elemen dapat mengecil jika terdapat keterbatasan ruang dalam kontainer fleksibel. 
+     Nilai 1 menunjukkan bahwa elemen akan mengecil secara proporsional dengan elemen 
+     lain jika terdapat keterbatasan ruang dalam kontainer fleksibel.
+   - Nilai terakhir pada sintaks, yaitu 35rem, adalah nilai untuk flex-basis. Ini menentukan 
+     ukuran awal elemen sebelum fleksibilitas diterapkan. Dalam kasus ini, elemen memiliki 
+     ukuran awal 35rem, yang setara dengan 560 piksel jika ukuran font root-nya adalah 16 
+     piksel.
+   - Secara keseluruhan, sintaks flex: 1 1 35rem; dapat diartikan bahwa elemen akan 
+     mendapatkan semua ruang fleksibel yang tersedia, dan jika terdapat keterbatasan ruang, 
+     elemen akan mengecil secara proporsional dengan elemen lainnya. Selain itu, elemen akan 
+     memiliki ukuran awal sebesar 35rem. 
+
+  - padding: 0 1 rem; Ukuran padding pada element div dengan class content :
+    - atas dan bawah di setting dengan nol 
+    - ukuran kiri dan kanan di setting dengan 1rem(16px)
+
+    Save dan coba jalankan program jika berhasil maka ukuran gambar seharusnya lebih besar dari ukuran tulisan 
+ 
+8. Langkah selanjutnya merapihkan h3 dan p pada html, berikut adalah sintaksnya !
+
+  Untuk h3
+   .about .row .content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+   }
+
+   Penjelasan sintaks : 
+   - font-size: 1.8rem; untuk membuat font(teks) ukurannya menjadi 1.8rem(28.8px)
+   - margin-bottom: 1rem; untuk menjadikan berjarak kebawah pada element h3 menjadi 1rem(16px)
+
+  Untuk p 
+   .about .row .content p {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 100;
+    line-height: 1.6;
+   }
+
+   Penjelasan sintaks:
+   - margin-bottom: 0.8rem; menjadikan margin-bottom p berjarak ke bawah sebanyak 0.8rem(12.8px)
+   - font-size: 1.3rem; menjadikan ukuran font(teks) sebesar 1.3rem(20.8px)
+   - font-weight: 100; menjadikan ukuran font(teks) ketebalannya 100
+   - line-height: 1.6; menjadikan jarak antara font(teks) menjadi berjarak 1.6(25.6px)
+
+   save dan jalankan program jika berhasil maka ukuran h3 dan p akan berubah
+
+9. Langkah selanjutnya merapihkan ukuran font pada element h3 dan p yang jika di buka pada ukuran layar tablet dan smarthphone menjadi kecil, berikut adalah langkahnya:
+   - Langkah pertama buka file cssnya style.css dan cari media querie untuk tablet dan ketikan sintaks berikut ini di bawah :
+     .about .row{
+      flex-wrap: wrap;
+     }
+
+     Penjelasan sintaks:
+     - flex-wrap: wrap; untuk membuat kondisi dimana jika lebar pembungkusnya tidak mencukupi 
+
+10. Langkah selanjutnya membuat gambar tidak teralau tinggi untuk ukuran tablets, berikut adalah sintaksnya :
+    .about .row .about-img img{
+      height: 24rem;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    Penjelasan sintaks:
+    - height: 24rem; untuk membuat tinggi element img menjadi 24rem(384px)
+    - object-fit: cover; untuk membuat ukuran gambar rasionya sesuai dengan rasio yang di tampilkan
+    - object-position: center; untuk membuat posisi dari element img objectnya berada di tengah 
+
+11. Langkah selanjutnya menghilangkan padding pada contet bertujuan untuk merapihkan teks yang ada di dalamnya, berikut adalah sintaksnya:
+    .about .row .content{
+      padding: 0; 
+    }
+
+    Penjelasan sintaks:
+    - padding: 0; untuk membuat apapun yang berada pada element content paddingnya di atur 0 agar sesuai dengan gambarnya 
+
+12. Langkah selanjutnya membuat element h3 pada tablet tidak terlalu berdekatan dengan element img, berikut sintaksnya:
+    .about .row .content h3{
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+
+    Penjelasan sintaks :
+    - margin-top: 1rem; untuk membuat ukuran margin pada element h3 berjarak ke atas 1rem(16px)
+    - font-size: 2rem; untuk membuat ukuran font(teks) pada element h3 menjadi sebesar 2rem(32px)
+
+13. Lankah selanjutnya mengatur element p jika di buka pada tablets ukurannya sesuai dengan yang di inginkan:
+    .about .row .content p{
+      font-size: 1.6rem;
+    }
+
+    Penjelasan sintaks:
+    - font-size: 1.6rem; untuk membuat ukuran font(teks) pada element p akan menjadi sebesar 1.6rem(25.6px)
+
+
+Bagian keempat: menu section 
+
+1. Lankah pertama buka file index.html, dan tuliskan sintaks berikut ini:
+    <section id="menu" class="menu">
+        <h2><span>Menu</span>Kami</h2>
+    </section>
+
+    save program 
+
+2. langkah kedua buka cssnya dan ketikan sintaks berikut ini untuk mengatur element h2 pada section menu :
+    .menu {
+      padding: 8rem 7% 1.4rem;
+    }
+
+    Penjelasan sintaks:
+    - padding: 8rem 7% 1.4rem; untuk membuat pengaturan posisi padding menjadi :
+       - 8rem(128px) untuk ukuran padding ke atas 
+       - 7% untuk mengatur ukuran padding kiri dan kanan 7% dari induknya
+       - 1.4rem(22,4) untuk mengatur padding ke bawah
+
+    .menu h2 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
+    Penjelasan sintaks :
+    - text-align: center; untuk mengatur jarak ke seluruhan pada font(teks) menjadi ke tengah 
+    - font-size: 2.6rem; untuk membuat ukuran font(teks) pada element h2 menjadi 2.6rem(41.6px)
+    - margin-bottom: 1rem; untuk membuat h2 memiliki margin ke bawah sebanyak 1rem(16px)
+
+    .about h2 span {
+      color: var(--primary);
+    }
+
+    Penjelasan sintaks :
+    - color: var(--primary); untuk menjadikan warna font(teks) menjadi warna yang di inginkan
+
+   Save dan pergi kebagian body untuk melakukan sedikit simulasi, ubah sintkas "min-height: 2000px" isinya menjadi "3000px", kemudian jalankan index.html.
+   jika berhasil ketika mengklik menu pada navbar maka akan di arahkan ke bagian menu kami
+
+3. Langkah selanjutnya menambahkan beberapa teks pada html, buka index.htmlnya dan tambahkan sintaks berikut pada section menu : 
+   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium odio recusandae vitae incidunt, quas veritatis.</p>
+
+   Save program 
+
+4. selanjutnya buka css dan ketikan sintaks berikut ini untuk mengatur element p html yang baru saja dibuat :
+   .menu p{
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+   } 
+
+   Penjelasan sintaks:
+   - teks-align: center; untuk menjadikan tulisan pada element p berada di tengah 
+   - max-width: 30rem; untuk menjadikan ukuran lebar element p adalah 30rem(480px)
+   - margin: auto; untuk menjadikan margin pada element p otomatis mengikuti ukuran dari induknya
+   - font-weight: 100; untuk mengatur ketebalan tulisan menjadi 100 tebalnya 
+   - line-height: 1.6; untuk memberikan jarak setiap baris tulisannya sebanyak 1.6 
+
+5. Langkah selanjutnya menambahkan gambar pada section menu, cari gambarnya pada link berikut ini "https://unsplash.com/photos/dAYJfrtVjh0" save pada ukuran medium dan perbaiki 
+   ukurannya di website "https://picresize.com/" ubah ukurannya menjadi 300 x 300 dan formatnya png dan berikan nama atau ubah namanya menjadi "1" bertujuan jika ingin mempunyai gambar 
+   menu lebih. salin gambarnya di dalam folder kopi kenangan senja pergi ke img dan buatkan folder menu kemudian pastekan gambarnya 
+
+6. Langkah selanjutnya membuatkan kode yang menghubungkan gambar tersebut pada section menu buatkan di dalamnya, beriku sintaksnya:
+        <div class="row">
+            <div class="menu-card">
+                <img src="img/menu/1.png" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Espresso</h3>
+                <p class="menu-card-price">IDR 15K</p>
+            </div>
+        </div>
+  Save dan jalankan index.htmlnya untuk melihat hasilnya
+
+7. Langkah selanjutnya merapihkan div class row pada section menu, pergi ke file css dan tuliskan sintaks berikut ini :
+   .menu .row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+   }
+
+   Penjelasan sintaks:
+   - display: flex; untuk menjadikan element div class row displaynya flexbel biasanya susunannya akan berpindah tempat ke samping karena flexibel terhadap induxnya 
+   - flex: wrap; untuk ketika terjadi muatan berlebih maka akan langsung ke bawah atau di buatkan baris baru untuk element lain jika induxnya tidak bisa menampung
+   - margin-top: 5rem; untuk membuat element div class row margin atasnya mempunyai jarak 5rem(80px)
+   - justify-content: center; untuk mengatur element element secara horizontal (x-axis) menjadi berpusat di tengah 
+
+8. Langkah selanjutnya merapihkan div class menu-card dan merapihkan element yang ada di dalamnya, berikut sintaks cssnya :
+   .menu .row .menu-card {
+    text-align: center;
+    padding-bottom: 4rem;
+   }
+
+   Penjelasan sintaks :
+   - text-align: center; untuk menjadikan font(teks) yang berada pada element div class mennu-card akan di jadikan ke tengah dari induknya 
+   - padding-bottom: 4rem; untuk membuat padding bawah pada element div class menu-card sebesar 4rem(64px)
+
+9. Selanjutnya membuat tampilan gambar menjadi lebih menari pada element section menu, berikut sintaks cssnya :
+   .menu .row .menu-card img{
+    border-radius: 50%;
+    width: 80%;
+   }
+
+   Penjelasan sintaks :
+   - border-radius: 50%; untuk mengatur tepian sudut melengkung pada element img menjadi lingkaran karena di atur sebanyak 50%
+   - width: 80%; untuk mengatur lebar dari element img sebesar 80% dari lebar awal element img 
+
+10. Lankah selanjutnya merapihkan tulisan judul pada div class menu yaitu h3 dengan nama class menu-card-tittle :
+    .menu .row .menu-card .menu-card-title{
+      margin: 1rem auto 0.5rem;  
+    }
+
+    Penjelasan sintaks :
+    - margin: 1rem auto 0.5rem; untuk membuat margin pada element h3 class menu-card-title :
+      - 1.5rem(16px) = margin atasnya akan di buat sebesar 1rem(16px)
+      - auto = kiri dan kanan margin di atur ukurannya mengikuti induxnya yaitu element div class menu 
+      - 0.5rem(8px) = margin bawahnya akan dibuat sebesar 0.5rem(8px)
+
+11. Lankah selanjutnya membuat simulasi jika terdapat banyak menu, buka file index.html dan tambahkan sintkas berikut di dalam folder index.html dan cetak atau buat sebanyak 3 kali 
+    untuk mensimulasikan bahwa website tersebut mempunyai 4 jenis menu :
+            <div class="menu-card">
+                <img src="img/menu/1.png" alt="Espresso" class="menu-card-img">
+                <h3 class="menu-card-title">- Espresso</h3>
+                <p class="menu-card-price">IDR 15K</p>
+            </div>
+
+12. Langkah selanjutnya merapihkan paragraf media queries tablet dan smarthphone pada element p yang berada di element div class menu, ikuti langkah berikut ini :
+    - Langkah pertama buka file style.css dan pergi kebagian media queries untuk tablet saja tidak juga di tuliskan untuk media queris smarthphone : 
+      menu p{
+        font-size: 1.2rem;
+      }
+
+      Penjelasan sintaks:
+      - font-size: 1.2rem; untuk membuat ukuran font(teks) pada element p ukurannya menjadi 1.2rem(19.2px)
+
+
+Bagian kelima: kontak section
+
+1. Langkah pertama buka index.html untuk membuatkan section kontak, buatkan setelah section menu :
+    <section id="contact" class="contact">
+        <h2><span>Kontak</span>Kami</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, sed!</p>
+    </section>
+
+2. langkah selanjutnya memberikan style pada element html section contact, buatkan sebeleum media querie :
+   .contact{
+    padding: 8rem 7% 1.4rem;
+   }
+
+   Penjelasan sintaks :
+   - padding: 8rem 7% 1.4rem; untuk menjadikan element section class contact paddingnya :
+     - 8rem(128px) = untuk padding bagian atas 
+     - 7% = padding kiri dan kanan jarakanya di atur sebanyak 7% dari induknya 
+     - 1.4rem(22.4px) = untuk mengatur padding bagian bawah 
+
+3. tambahkan sintaks berikut ini untuk mengatur element h2 pada section contact :
+   .contact h2 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+   }
+
+   Penjelasan sintaks :
+  - text-align: center; untuk membuat posisi tulisan berada di tengah
+  - font-size: 2.6rem; untuk membuat font(teks) ukurannya menjadi 2.6(41.6px)
+  - margin-bottom: 1rem; untuk membuat margin yang membungkus font ukuran bawahnya menjadi 1rem(16px)
+
+4. Berikut sintaks untuk merapihkan span yang terdapat di dalam h2 pada element section class contact :
+   .contact h2 span{
+    color: var(--primary);
+   }
+
+   Penjelasan sintaks:
+   - color: var(--primary); untuk menjadikan warna tulisan pada span menjadi warna yang di tentukan 
+
+5. Langkah selanjutnya merapihkan baris paragraf pada element section contact :
+   .contact p{
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+   }
+
+   Penjelasan sintaks:
+   - teks-align: center; untuk menjadikan tulisan pada element p berada di tengah 
+   - max-width: 30rem; untuk menjadikan ukuran lebar element p adalah 30rem(480px)
+   - margin: auto; untuk menjadikan margin pada element p otomatis mengikuti ukuran dari induknya
+   - font-weight: 100; untuk mengatur ketebalan tulisan menjadi 100 tebalnya 
+   - line-height: 1.6; untuk memberikan jarak setiap baris tulisannya sebanyak 1.6 
+
+6. Langkah selanjutnya menambahkan element html yang memunculkan maps. tambahkan di dalam section contact : 
+   - langkah pertama buka website google maps "https://www.google.com/maps/" dan posisikan titiknya . jika sudah klik bagian share dan pilih "Embed a map"
+     Setting ke medium dan copykan htmlnya dan simpan di dalam htmlnya, berikut sintaks htmlnya yang di tambahkan ke section contact :
+        <div class="row">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63374.29270312784!2d107.60195793973308!3d-6.903362472220903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1684206025139!5m2!1sid!2sid"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+   - hapus width, height dan stylenya di dalam element iframe kemudian tambahkan class bernama "map" pada iframe 
+
+7. Buka css untuk mengatur element div class row, seperti berikut ini :
+   .contact .row{
+    display: flex;
+    margin-top: 2rem;
+    background-color: #222;
+   }
+
+   Penjelasan sintaks:
+   - display: flex; untuk mengatur tampilan menjadi flexibel pada induxnya
+   - margin-top: 2rem;
+   - background-color: #222; untuk membuat warna latar menjadi warna yang di inginkan 
+
+8. Langkah selanjutnya ubah min-height: 3000px; yang terdapat pada body menjadi 5000px untuk simulasi tampilan agar bebas melihatnya 
+   save dan jalankan index.html 
+
+9. langkah selanjutnya merapihkan grow dan shrink css elemen iframe class map untuk tampilan peta :
+    .contact .row .map{
+      flex: 1 1 45rem;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    Penjelasan sintaks:
+    - flex: 1 1 45rem;
+      - Nilai 1 pada sintaks tersebut merupakan nilai untuk flex-grow. Ini menentukan
+        seberapa banyak ruang fleksibel yang akan diberikan ke elemen jika ada ruang kosong 
+        dalam fleksible kontainer. Nilai 1 menunjukkan bahwa elemen akan mendapatkan semua
+        ruang fleksibel yang tersedia.
+      - Nilai 1 berikutnya pada sintaks adalah untuk flex-shrink. Ini menentukan seberapa 
+        banyak elemen dapat mengecil jika terdapat keterbatasan ruang dalam kontainer fleksibel. 
+        Nilai 1 menunjukkan bahwa elemen akan mengecil secara proporsional dengan elemen 
+        lain jika terdapat keterbatasan ruang dalam kontainer fleksibel.
+      - Nilai terakhir pada sintaks, yaitu 45rem, adalah nilai untuk flex-basis. Ini menentukan 
+        ukuran awal elemen sebelum fleksibilitas diterapkan. Dalam kasus ini, elemen memiliki 
+        ukuran awal 45rem, yang setara dengan 720 piksel jika ukuran font root-nya adalah 16 
+        piksel.
+      - Secara keseluruhan, sintaks flex: 1 1 45rem; dapat diartikan bahwa elemen akan 
+        mendapatkan semua ruang fleksibel yang tersedia, dan jika terdapat keterbatasan ruang, 
+        elemen akan mengecil secara proporsional dengan elemen lainnya. Selain itu, elemen akan 
+        memiliki ukuran awal sebesar 45rem.
+    - width: 100%; untuk mengatur ukuran lebar element iframe class map menjadi 100% dari induxnya atau element yang mengandungnya
+    - object-fit: cover; untuk menjadikan gambar dari element iframe class map akan di perbesar atau di perkecil secara proposional untuk memenuhi ukuran element yang mengandungnya 
+
+10. Langkah selanjutnya menambahkan element html form pada index.html yang di dalamnya terdapat nama, alamat, email . berikut adalah sintaksnya buat sintaks ini setelah element iframe untuk tampilan map :
+        <form action="">
+            <div class="input-group">
+                <i data-feather="user"></i>
+                <input type="text" placeholder="nama">
+            </div>
+            <div class="input-group">
+                <i data-feather="mail"></i>
+                <input type="text" placeholder="email">
+            </div>
+            <div class="input-group">
+                <i data-feather="phone"></i>
+                <input type="text" placeholder="nohp">
+            </div>
+            <button type="submit" class="btn">Kirim pesan</button>
+        </form>
+
+11. Langkah selanjutnya merapihkan flex grow dan shrink cssnya untuk element form :
+    .contact .row form{
+      flex: 1 1 45rem;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    Penjelasan sintaks :
+    - flex: 1 1 45rem;
+      - Nilai 1 pada sintaks tersebut merupakan nilai untuk flex-grow. Ini menentukan
+        seberapa banyak ruang fleksibel yang akan diberikan ke elemen jika ada ruang kosong 
+        dalam fleksible kontainer. Nilai 1 menunjukkan bahwa elemen akan mendapatkan semua
+        ruang fleksibel yang tersedia.
+      - Nilai 1 berikutnya pada sintaks adalah untuk flex-shrink. Ini menentukan seberapa 
+        banyak elemen dapat mengecil jika terdapat keterbatasan ruang dalam kontainer fleksibel. 
+        Nilai 1 menunjukkan bahwa elemen akan mengecil secara proporsional dengan elemen 
+        lain jika terdapat keterbatasan ruang dalam kontainer fleksibel.
+      - Nilai terakhir pada sintaks, yaitu 45rem, adalah nilai untuk flex-basis. Ini menentukan 
+        ukuran awal elemen sebelum fleksibilitas diterapkan. Dalam kasus ini, elemen memiliki 
+        ukuran awal 45rem, yang setara dengan 720 piksel jika ukuran font root-nya adalah 16 
+        piksel.
+      - Secara keseluruhan, sintaks flex: 1 1 45rem; dapat diartikan bahwa elemen akan 
+        mendapatkan semua ruang fleksibel yang tersedia, dan jika terdapat keterbatasan ruang, 
+        elemen akan mengecil secara proporsional dengan elemen lainnya. Selain itu, elemen akan 
+        memiliki ukuran awal sebesar 45rem.
+    - padding: 5rem 2rem;
+      - 5rem(80px) = untuk mengatur padding atas dan bawah element form menjadi berjarak 5rem(80px)
+      - 2rem(32px) = untuk mengatur padding kiri dan kanan element form menjadi berjarak 2rem(32px)
+
+    Save dan jalankan index.htmlnya 
+
+12. Langkah selanjutnya mengatur element div class input-group :
+    .contact .row form .input-group{
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+      background-color: var(--bg);
+      border: 1px solid #eee;
+      padding-left: 2rem;
+    }
+
+    Penjelasan sintaks:
+    - display: flex; untuk mengatur tampilan layar pada display element input-group menjadi flexibel terhadap induxnya 
+    - align-items: center; untuk mengatur items yang terdapat di dalam div class input-group di atur secara vertikal ke tengah dari lebar induxnya jika berbeda 
+    - margin-top: 2rem; untuk mengatur margin atas pada element div class input-group menjadi 2rem(32px)
+    - background-color: var(--bg); untuk mengatur warna latar dari element div class input-group menjadi warna yang di inginkan 
+    - border: 1px solid #eee; untuk mengatur border di sekliling area element div class input-group setebal 1px tingkat visualnya solid dan berwarna yang dinginkan 
+    - padding-left: 2rem; untuk mengatur padding sebelah kiri dari element div class input-group berjarak 2rem(32px)
+
+13. Langkah selanjutnya mengatur inputan di dalam element div class input-group:
+   .contact .row form .input-group input{
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.7rem;
+    background: none;
+    color: #fff;
+   }
+
+   Penjelasan sintaks:
+   - width: 100%; untuk mengatur lebar dari element input menjadi 100% dari induxnya yaitu element div class input-group 
+   - paddding: 2rem; untuk mengatur lebar dari element input mempunyai padding di sekelilingnya sebesar 2rem(32px)
+   - font-size: 1.7rem; untuk mengatur ukuran font(teks) menjadi sebesar 1.7rem(27.2px)
+   - background: none; untuk menyatakan bahwa element input tidak akan menggunakan background
+   - color: #fff; untuk membuat warna tulisan di dalam element input akan menjadi warna yang di inginkan 
+
+   save dan jalankan index.html untuk melihat hasilnya
+
+14. Langkah selanjutnya memberikan style pada element button di dalam element form : 
+    .contact .row form .btn{
+      margin-top: 3rem;
+      display: inline-block;
+      padding: 1rem 3rem;
+      font-size: 1.7rem;
+      color: #fff;
+      background-color: var(--primary);
+      cursor: pointer;
+    }
+
+    Penjelasan sintaks:
+    - margin-top: 3rem; untuk menjadikan element button class btn memiliki margin atas sebesar 3rem(48px)
+    - display: inline-block; untuk menjadikan element button class btn tampilannya menjadi satu baris dan memiliki lebar dan tinggi yang dapat di sesuaikan
+    - padding: 1rem 3rem; untuk menjadikan padding dari element button class btn :
+       - 1rem(16px) untuk mengatur padding element atas dan bawah button class btn 
+       - 3rem(48px) untuk mengatur padding element kiri dan kanan button class btn 
+    - font-size: 1.7rem; untuk mengatur ukuran font(teks) di dalam element button class btn menjadi 1.7rem(27.2px)
+    - color: #fff; untuk menjadikan warna font(teks) pada element button class btn menjadi warna yang di inginkan 
+    - background-color: var(--primary); untuk mengatur element button class btn memiliki warna latar yang dinginkan 
+    - cursor: pointer; untuk mengatur interaksi yang di lakukan ketika mouse berada di atas element button class btn 
+
+    save dan jalankan index.html untuk melihat hasilnya 
+
+15. langkah selanjutnya menampilkan pada layar tablets perlu perbaikan karena menginginkan element form akan turun atau di bagi 2 dengan gambar, beirkut sintaksnya :
+    - pergi ke media querie untuk tables dan tuliskan sintaks berikut ini :
+      .contact .row {
+        flex-wrap: wrap;
+      }
+
+      Penjelasan sintaks:
+      - flex-wrap: wrap; untuk menjadikan jika element yang di tampung lebarnya tidak muat maka akan di lakukan perpindahan baris baru pada ukuran layar tablet 
+      
+    - langkah selanjutnya menambahkan sintaks berikut ini untuk menjadikan gambar pada peda simetris dengan ukuran element form :
+      .contact .row .map{
+        height: 30rem;
+      }
+
+      Penjelasan sintaks:
+      - height: 30rem; untuk menjadikan tinggi dari element iframe class map tingginya menjadi 30rem(480px)
+
+    - membuat element form jaraknya di atur sedikit lebih dekat dengan element iframe class map :
+      .contact .row form{
+        padding-top: 0;
+      }
+
+      Penjelasan sintaks:
+      - padding-top: 0; untuk membuat padding atas dari element form mempunyai ukuran 0 dari induxnya yaitu row jika di buka di dalam tablets
+
+      save dan jalankan index.html simulasikan untuk responsivenya 
+
+
+Bagian keenam: footer
+
+1. buka index.html dan buatkan element html berikut ini di bawah section contact :
+    <footer>
+        <div class="socials">
+            <a href="#"><i data-feather="instagram"></i></a>
+            <a href="#"><i data-feather="twitter"></i></a>
+            <a href="#"><i data-feather="facebook"></i></a>
+        </div>
+
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="#about">Tentang kami</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Kontak</a>
+        </div>
+
+        <div class="credit">
+            <p>Created by <a href="">Irvan al rasyid</a>. | &copy; 2023.</p>
+        </div>
+    </footer>
+
+2. Langkah selanjutnya merapihkan element footer pada css buka file style.css, dan ketikan sintaks berikut ini:
+   footer {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+   }
+
+   Penjelasan sintaks:
+   - background-color: var(--primary); untuk menjadikan warna latar element footer menjadi yang di inginkan 
+   - text-align: center; untuk menjadikan font(teks) menjadikan ke tengah 
+   - padding: 1rem 0; untuk menjadikan padding pada element footer 
+     - 1rem(16px) = untuk ukuran padding atas
+     - 0 = untuk menjadikan sisi kiri dan kanan 0 padding
+     - 3rem(48px) = untuk ukuran padding bawah 
+   - margin-top: 3rem; untuk menjadikan ukuran margin atas pada element footer mempunyai ukuran 3rem(48px)
+
+   Langkah selanjutnya menghapus sintaks "min-height: 5000px;" pada element body untuk melihat apakah programnya sesuai.
+   save dan jalankan program 
+
+3. Langkah selanjutnya merapihkan div class social : 
+   footer .socials{
+    padding: 1rem 0;
+   }
+
+   Penjelasan sintaks:
+   - padding: 1rem 0; untuk mengatur ukuran padding pada element div class socials memiliki padding atas dan bawah 1rem(16px) dan kiri dan kanan 0
+
+4. Langkah selanjutnya membuat warna pada element a di dalam element div class socials :
+   footer .socials a{
+    color: #fff;
+    margin: 1rem;
+   } 
+
+   Penjelasan sintaks :
+   - color: #fff; untuk menjadikan element a memiliki warna yang di inginkan 
+   - margin: 1rem; untuk menjadikan margin element a memiliki ukuran di setiap sisinya sebanyak 1rem(16px)
+
+5. Langkah selanjutnya ketika di hover atau mouse berada di atas icon akan melakukan interaksi : 
+   footer .socials a:hover {
+    color: var(--bg);
+   }    
+
+   Penjelasan sintaks:
+   - color: var(--bg); mengubah warna tulisan menjadi warna yang di inginkan 
+
+6. Langkah selanjutnya mengatur element div class links :
+   footer .links {
+    margin-bottom: 1.4rem;
+   }
+
+   Penjelasan sintaks:
+   - margin-bottom: 1.4rem; untuk mengatur element div class links memiliki margin bottom sebesar 1.4rem(22.4px)
+
+7. Langkah selanjutnya mengatur element a di dalam element div class links :
+    footer .links a{
+      color: #fff;
+      padding: 0.7rem 1rem;
+    } 
+
+    Penjelasan sintaks:
+    - color: #fff; untuk menjadikan warna pada element a menjadi warna yang di inginkan 
+    - padding: 0.7rem 1rem; untuk menjadikan element a memiliki padding atas dan bawah 0.7rem(11.2px) kiri dan kanan 1rem(16px) 
+
+8. Langkah selanjutnya memberikan interaksi element a ketika di hover :
+    footer .links a:hover {
+      color: var(--bg);
+    }
+
+    Penjelasan sintaks:
+    - color: var(--bg); untuk menjadikan interaksi perubahan warna huruf ketika mouse berada di atas element a 
+
+9. Langkah selanjutnya melakukan modivikasi pada element div class credit : 
+   footer .credit{
+    font-size: 0.8rem;
+   }
+
+   Penjelasan sintaks:
+   - font-size: 0.8rem; untuk menjadikan ukuran font yang di kandung di dalam element div class credit memiliki ukuran 0.8rem(12.8px)
+
+10. Langkah selanjutnya memodifikasi css element a :
+    footer .credit a{
+      color: var(--bg);
+      font-weight: 700;
+    }
+
+    Penjelasan sintaks:
+    - color: var(--bg); untuk menjadikan element a di dalam div class credit memiliki warna yang di inginkan 
+    - font-weight: 700; untuk menjadikan element a di dalam div class credit memiliki ketebalan teks sebesar 700
+
+11. Langkah selanjutnya membuat interaksi ketika tombol yang mengarahkan kebagian sub menu, tuliskan sintaks berikut ini sebelum element body css :
+    html{
+      scroll-behavior: smooth;
+    }
+
+    Penjelasan sintaks:
+    - scroll-behavior: smooth; untuk memberikan efek scroll animasinya halus 
