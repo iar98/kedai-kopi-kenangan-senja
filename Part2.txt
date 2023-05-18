@@ -1,0 +1,759 @@
+Langkah selanjutnya menambahkan beberapa fitur :
+1. fitur searching
+2. menambahkan menu produk 
+3. menambahkan shoping card dan terhubung ke keranjang belanja 
+4. menambahkan fitur detail
+
+Berikut adalah mekanisme pembuatannya :
+
+Membuat fitur searching :
+
+1. Langkah pertama buka file index.html dan cari div class navbar dan ketikan di akhir div class navbar :
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="Cari disini...">
+            <label for="search-box"><i data-feather="search"></i></label>
+        </div>
+
+   Save dan coba jalankan index.html untuk melihat hasilnya 
+
+2. buka css untuk mengatur tampilannya, pergi kebagian navbar code dan tuliskan di bagian bawahnya setelah css id hamburger-menu : 
+   - Langkah pertama mengatur element div class search-form :
+     .navbar .search-form {
+        position: absolute;
+        top: 100%;
+        right: 7%;
+        background-color: #fff;
+        width: 50rem;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+     }
+
+     Penjelasan sintaks:
+     - position: absolute; Untuk mengatur posisi keluar dari element induxnya tidak terikat seperti position: relative;
+     - top: 100%; untuk mengatur bagian atas element div class search-form menjadi 100% mengikuti induknya yaitu div class navbar 
+     - right: 7%; untuk mengatur bagian kanan element div class search-form menjadi 7% mengikuti induknya yaitu div class navbar 
+     - background-color: #fff; untuk mengatur warna latar element div class search-form menjadi warna yang di inginkan 
+     - width: 50rem; untuk mengatur element div class search-form menjadi lebarnya 50rem(800px) dari induxnya yaitu element div class navbar 
+     - height: 5rem; untuk mengatur element div class search-form menjadi tingginya 5rem(80px) dari induxnya yaitu element div class navbar 
+     - display: flex; untuk mengatur element div class search-form tampilannya menjadi flexibel atau sejajar secara vertikal 
+     - align-items: center; untuk mengatur element div class search-form itemnya menjadi ketengah secara horizontal
+
+     Save dan jalankan index.html 
+
+3. Langkah selanjutnya untuk mengatur element element di dalam div class search-form 
+   .navbar .search-form input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--bg);
+    padding: 1rem;
+   }
+
+   Penjelasan sintaks:
+   - height: 100%; untuk menjadikan element input tingginya 100% atau sama dengan tinggi dari induknya atau pembungkusnya
+   - width: 100%; untuk menjadikan element input lebarnya 100% atau sama dengan lebar dari induxnya atau pembungkusnya 
+   - font-size: 1.6rem; untuk menjadikan ukuran font(teks) ukurannya sebesar 1.6rem(25.6px)
+   - color: var(--bg); untuk menjadikan warna tulisan menjadi warna yang di inginkan 
+   - padding: 1rem; untuk menjadikan padding element input berjarak dari induknya sebesar 1rem(16px) di setiap sisinya
+
+   save dan jalankan index.html 
+
+4. Langkah selanjutnya melakukan modifikasi element label pada div class search-form 
+   .navbar .search-form label{
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: var(--bg);
+   }
+
+   Penjelasan sintaks:
+   - cursor: pointer; Untuk menjadikan interaksi mouse ketika mouse berada di atas element label 
+   - font-size: 2rem; untuk menjadikan ukuran font(teks) ukurannya menjadi 2rem(16px)
+   - margin-right: 1.5rem; untuk menjadikan margin kanan element label ukurannya menjadi 1.5rem(24px)
+   - color: var(--bg); untuk menjadikan warna teks dari elemen label menjadi warna yang di inginkan
+
+5. Langkah selanjutnya membuat mekanisme search seperti berikut jika di klik ada dan jika di klik sembarang maka di hilangkan, dengan menambahkan sintaks css transform: scaleY(0) yang
+   di perkecil menjadi 0, tambahkan sintaks beirkut ini di dalam element div class search-form :
+   
+   transform: scaleY(0);
+   transform-origin: top;
+   transition: 0.3s;
+
+   Penjelasan sintaks:
+   - transform: scaleY(0); untuk mengatur element div class search-form ukuran horizontalnya bertransformasi menjadi 0 tidak terlihat
+   - transform-origin: top; untuk mengatur element div class search-form jika melakukan animasi munculnya dari atas bukan dari tengah(defaultnya)
+   - transition: 0.3s; untuk menjadikan interaksi ketika muncul akan di berikan waktu timming 0.3s atau 3 milidetik
+
+6. jika sudah menambahkan kedalam css div class search-form kemudian ketikan sintaks berikut ini pada css untuk dijadikan toogle pada javascript, jika belum ada dibuatkan jika sudah 
+   ada di hilangkan :
+   .navbar .search-form.active{
+    transform: scaleY(1);
+   }
+
+   Penjelasan sintaks:
+   - transform: scaleY(1); Untuk menjadikan transform: sacleY(0) menjadi transform: scaleY(1) jika terdapat class active 
+
+7. langkah selanjutnya buka file index.html pada bagian div class navbar-extra ubah element a idnya menjadi search-button dan buka javascript bernama script.js 
+   dan ketikan sintaks berikut ini di bawahnya :
+   
+   const searchForm = document.querySelector('.search-form');
+   const searchBox = document.querySelector('#search-box');
+
+   document.querySelector('.search-button').onclick = (e) => {
+      searchForm.classList.toggle('active');
+      searchBox.focus();
+      e.preventDefault();
+   }
+
+   Penjelasan sintaks:
+   - const searchForm = document.querySelector('.search-form'); untuk mengambil element div class search-form dan di jadikan variabel untuk di gunakan di javascript 
+   - const searchBox = document.querySelector('#search-box'); unyuk mengambil element input id search-box dan di jadikan variabel untuk di gunakan di javascript
+   - document.querySelector('.search-button').onclick = () => {} untuk menjadikan situasi pada element a dengan class seacrh-button terjadi aksi ketika di klik
+   - searchForm.classList.toggle('active'); untuk menjadikan situasi dimana jika belum ada class "active" maka akan di buatkan jika sudah ada maka di hilangkan  
+   - searchBox.focus(); untuk menjadikan ketika class active ada maka akan langsung terfokus kan ke element input id search-box 
+   - e.preventDefault(); untuk menjadikan parameter e dan di jadikan sebagai object di dalam function bertujuan untuk aksi defaultnya tidak dilakukan
+
+8. Langkah selanjutnya memperbaiki tombol search jika tampil di layar tablets, berikut adalah sintaksnya. buka css pergi ke pengaturan smarthphonenya :
+   .navbar .search-form {
+    width: 90%;
+    right: 2rem;
+   }
+
+   Penjelasan sintaks:
+   - width: 90%; untuk menjadikan ukuran element div class search-form di layar tablets berukuran 90% dari induknya yaitu div class navbar
+   - right: 2rem; untuk menjadikan kanan pada element div class search-form berjarak 2rem(32px)
+
+   save dan jalankan index.html buka di ukuran layar tablets dan lebih kecil lagi jika berhasil maka search akan mengikuti induknya atau pembungkusnya 
+
+9. Langkah selanjutnya ketika klik di luar area dari element a id search-button kelas activenya jika ada maka akan dihilangkan juga :
+   pergi ke file script.js dan pada bagian hamburger menu ganti sintaks javascriptnya menjadi, kemudian letakan di bagian bawah toggle class active untuk search : 
+
+    const hm = document.querySelector("#hamburger-menu");
+    const sb = document.querySelector("#seacrh-button");
+
+    document.addEventListener("click", function (e) {
+        if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
+        navbarNav.classList.remove("active");
+        }   
+        if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
+        searchForm.classList.remove("active");
+        }   
+     });
+
+   Save dan jalankan index.html jika berhasil maka ketika search di aktivkan saat klik sembarang selain area serch, maka akan menutup searchnya atau menghilangkan class active 
+
+
+Membuat fitur produk untuk di jual 
+
+1. Langkah pertama buka index.html dan ketikan sintaks berikut ini setelah section menu : 
+    <section class="products" id="products">
+        <h2><span>Produk Unggulan</span> Kami</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At possimus maiores, excepturi recusandae fugit
+            blanditiis!</p>
+    </section>
+
+2. Langkah selanjutnya merapihkan cssnya atau tampilannya, letakan sintaksnya setelah class menu pada css : 
+   .products {
+   padding: 8rem 7% 1.4rem;
+   }
+
+   Penjelasan sintaks: 
+   - padding: 8rem 7% 1.4rem; untuk menjadikan element section class products paddingnya :
+     - 8rem(128px) = untuk padding bagian atas 
+     - 7% = padding kiri dan kanan jarakanya di atur sebanyak 7% dari induknya 
+     - 1.4rem(22.4px) = untuk mengatur padding bagian bawah 
+
+   .menu h2 {
+   text-align: center;
+   font-size: 2.6rem;
+   margin-bottom: 1rem;
+   }
+
+   Penjelasan sintaks:
+  - text-align: center; untuk membuat posisi tulisan berada di tengah
+  - font-size: 2.6rem; untuk membuat font(teks) ukurannya menjadi 2.6(41.6px)
+  - margin-bottom: 1rem; untuk membuat margin yang membungkus font ukuran bawahnya menjadi 1rem(16px)
+
+   .menu h2 span {
+   color: var(--primary);
+   }
+
+   Penjelasan sintaks:
+   - color: var(--primary); untuk menjadikan warna tulisan pada span menjadi warna yang di tentukan 
+
+   .menu p {
+   text-align: center;
+   max-width: 30rem;
+   margin: auto;
+   font-weight: 100;
+   line-height: 1.6;
+   }
+
+   Penjelasan sintaks:
+   - teks-align: center; untuk menjadikan tulisan pada element p berada di tengah 
+   - max-width: 30rem; untuk menjadikan ukuran lebar element p adalah 30rem(480px)
+   - margin: auto; untuk menjadikan margin pada element p otomatis mengikuti ukuran dari induknya
+   - font-weight: 100; untuk mengatur ketebalan tulisan menjadi 100 tebalnya 
+   - line-height: 1.6; untuk memberikan jarak setiap baris tulisannya sebanyak 1.6
+
+3. Langkah selanjutnya membuatkan route yang menghubungkan dengan section products, buka file index.html dan tambahkan sintaks berikut ini pada element div navbar-nav.
+   maka sintaks element div class navbar-nav akan menjadi seperti berikut ini :
+        <div class="navbar-nav">
+            <a href="#home">Home</a>
+            <a href="#about">Tentang kami</a>
+            <a href="#menu">Menu</a>
+            <a href="#products">Produk</a>
+            <a href="#contact">Kontak</a>
+        </div>
+
+   save dan jalankan index.html jika berhasil maka akan menambahkan nama produk di bagian navbar 
+
+4. Masih di dalam file index.html dan pergi kebagian element section dengan class product tambahkan sintaks berikut ini di bawah p :
+         <div class="row">
+            <div class="product-card">
+            <div class="product-icons">
+                <a href="#"><i data-feather="shopping-cart"></i></a>
+                <a href="#"><i data-feather="eye"></i></a>
+            </div>
+            <div class="product-image">
+                <img src="img/products/1.png" alt="Product 1">
+            </div>
+            </div>
+        </div>
+
+   Save dan coba jalankan program jika berhasil maka terdapat logo shoping-cart dan eye 
+
+5. langkah selanjutnya mencarikan gambar untuk bagian element img pada div class product-image berikut linknya "https://unsplash.com/photos/QouiCn7u6kw" dowload ukuran medium kemudian 
+   buka website "https://picresize.com/" ubah ukurannya menjadi 800 x 800 format png dan buatkan folder di dalam img project kopi kenangan senja bernama products dan letakan gambarnya di sana 
+   dan berinama "1" 
+
+6. Langkah selanjutnya masih di dalam file index.html masih di bagian section products di dalam div class product-card tambahkan sintaks berikut ini :
+            <div class="product-content">
+                <h3>Coffe Beans 1</h3>
+                <div class="product-stars">
+                    <i data-feather="star" class="star-full"></i>
+                    <i data-feather="star" class="star-full"></i>
+                    <i data-feather="star" class="star-full"></i>
+                    <i data-feather="star" class="star-full"></i>
+                    <i data-feather="star" class="star-full"></i>
+                </div>
+                <div class="product-price">IDR 30K <span>IDR 55K</span></div>
+            </div>
+   
+   Save dan jalankan index.html untuk melihat hasilnya .
+
+7. Langkah selanjutnya membuat style css untuk element yang di buatkan buka file style.css dan ketikan sintaks berikut ini di dalam group pengaturan style products :
+   .products .row{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      gap: 1.5rem;
+      margin-top: 4rem;
+   }
+
+   Penjelasan sintaks :
+   - display: grid; memungkinkan element div class row dapat di atur menjadi grid 2 dimensi untuk mengatur element element di dalamnya kedalam baris dan kolom 
+   - grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); untuk mengatur agar ukurannya langsung responsive, Dalam sintaks tersebut, terdapat dua bagian penting:
+     - "auto-fit": Ini adalah argumen pertama yang digunakan dalam fungsi "repeat()". Argumen
+       ini memberi tahu CSS untuk menyesuaikan jumlah kolom secara otomatis berdasarkan 
+       lebar konten dan ruang yang tersedia dalam wadah grid. Dengan menggunakan "auto-
+       fit", grid akan mencoba memuat sebanyak mungkin kolom dalam satu baris tanpa 
+       merusak tata letak atau menghasilkan overflow horizontal.
+
+     - "minmax(30rem, 1fr)": Ini adalah argumen kedua yang digunakan dalam fungsi "repeat()" 
+       dan merupakan fungsi lain yang disebut "minmax()". Fungsi "minmax()" digunakan untuk 
+       menentukan rentang lebar kolom yang diinginkan dalam grid. Dalam kasus ini, kita
+       menggunakan "minmax(30rem, 1fr)", yang berarti setiap kolom dalam grid akan memiliki 
+       lebar minimum 30rem(480px) dan lebar maksimum 1 fraksi dari ruang yang tersedia.
+
+   - gap: 1.5rem; untuk mengatur jarak elemen element yang di kandung di dalam div class row berjarak 1.5rem(24px)
+   - margin-top: 4rem; Untuk memeberikan element div class row margin atasnya berjarak 4rem(64px)
+
+8. Langkah selanjutnya memberikan style css pada elemen div class product-card, berikut adalah sintaksnya : 
+   .products .product-card {
+      text-align: center;
+      border: 1px solid #666;
+      padding: 2rem;
+   }
+
+   Penjelasan sintaks:
+   - text-align: center; untuk mengatur font(teks) pada element div class product-card menjadi ketengah 
+   - border: 1px solid #666; untuk mengatur element div class product-card memiliki border solid setebal 1px dan berwarna yang di inginkan 
+   - padding: 2rem; untuk mengatur padding pada element div class product-card memiliki padding sebesar 2rem(32px) di setiap sisinya 
+
+   Save program 
+
+9. Langkah selanjutnya membuatkan style pada element div class product-icons : 
+   .products .product-icons {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+   }
+
+   Penjelasan sintaks:
+   - display: flex; untuk merubah tampilan element div class product-icons menjadi flexibel 
+   - justify-content: center; untuk mengatur element element yang di kandung di dalam div class product-icons di atur secara horizontal 
+   - gap: 0.5rem; untuk mengatur jarak antara element element yang di kandung di dalam element div class product-icons berjarak 0.5rem(8px)
+
+   save program 
+
+10. Langkah selanjutnya mengatur element a yang berada di dalam element div class product-icons :
+    .products .product-icons a {
+      width: 4rem;
+      height: 4rem;
+      color: #fff;
+      margin: 0.3rem;
+      border: 1px solid #666;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    Penjelasan sintaks :
+    - width: 4rem; untuk menjadikan element a memiliki lebar sebesar 4rem(64px)
+    - height: 4rem; untuk menjadikan element a memiliki tinggi sebesar 4rem(64px)
+    - color: #fff; untuk menjadikan font(teks) pada element a menjadi warna yang di inginkan 
+    - margin: 0.3rem; untuk menjadikan margin pada element a memiliki margin di tiap sisi 0.3rem(4.8px)
+    - border: 1px solid #666; menjadikan element a memiliki border dengan ketebalan 1px solid dan berwarna yang di inginkan 
+    - border-radius: 50%; untuk menjadikan element a border-radius atau sisi samping lengkung sebesar 50% 
+    - display: flex; untuk menjadikan tampilan pada element a menjadi flexibel 
+    - justify-content: center; untuk menjadikan element element yang di kandung di dalam element a akan di atur secara horizontal ke tengah induknya 
+    - align-items: center; untuk menjadikan element element yang di kandung di dalam element a akan di atur secara vertikal ke tengah induknya
+
+11. Langkah selanjutnya membuat interaksi ketika mouse berada di tengah tengah : 
+    .products .product-icons a:hover {
+      background-color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    Penjelasan sintaks :
+    - background-color: var(--primary); untuk menjadikan warna latar dari element a ketika mouse berada di atasnya menjadi berwarna yang di inginkan
+    - border: 1px solid var(--primary); untuk menjadikan border ketebalannya 1px solid dan berwarna yang di inginkan 
+
+   save program dan jalankan index.html coba letakan mouse di atas jika berhasil maka akan ada interaksi 
+
+12. langkah selanjutnya mengatur css div class product-image : 
+    .products .product-image{
+      padding: 1rem 0;
+    }
+
+    Penjelasan sintaks:
+    - padding: 1rem 0; untuk mengatur padding pada element div class product-image memiliki padding atas dan bawah 1rem(16px) dan kiri dan kanan menjadi 0
+
+13. Langkah selanjutnya mengatur css element img pada element div class product-image :
+    .products .product-image img{
+      height: 25rem;
+    }
+
+    Penjelasan sintaks:
+    - height: 25rem; untuk menjadikan element img tingginya berukuran 25rem(400px)
+
+    save program dan coba duplikasi element div class product-card sebanyak 3 save kembali dan jalankan index.html jika berhasil maka ketika ukuran layar tertentu akan di atur 
+    posisi secara otomatis 
+
+14. Langkah selanjutnya mengatur element h3 pada element div class product-content :
+    .products .product-content h3{
+      font-size: 2rem;
+    }
+
+    Penjelasan sintaks:
+    - font-size: 2rem; untuk menjadikan ukuran element h3 font(element) pada element div class product-content menjadi 2rem(32px)
+
+15. Langkah selanjutnya membuat style pada element div class product-stars : 
+    .products .product-stars{
+      font-size: 1.7rem;
+      padding: 0.8rem;
+      color: var(--primary);
+    }
+
+    Penjelasan sintaks :
+    - font-size: 1.7rem; untuk menjadikan element div class product-stars font(teks) ukurannya menjadi 1.7rem(27.2px)
+    - padding: 0.8rem; untuk menjadikan padding pada element div class product-stars semua sisinya menjadi 0.8rem(12.8px)
+    - color: var(--primary); untuk menjadikan font(teks) pada elemnt div class product-stars menjadi warna yang di inginkan 
+
+16. langkah selanjutnya mewarnai simbol bintang yang di panggil dengan cdn dari feather-icon berikut sintaknya :
+    .products .product-stars .star-full{
+      fill: var(--primary);
+    }
+
+    Penjelasan sintaks: 
+    - fill: var(--primary); untuk menjadikan gambar svg (scalabel vector graphics) menjadi warna yang di inginkan ini di khususkan untuk img svg saja 
+
+17. Langkah selanjutnya memberikan style pada element div class product-price : 
+    .products .product-price{
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    Penjelasan sintaks:
+    - font-size: 1.3rem; untuk menjadikan font(teks) pada elemen div class product-price ukurannya menjadi 1.3rem(20.8px)
+    - font-weight: bold; untuk menjadikan font(teks) pada element div class product-price ketebalannya menjadi bold 
+
+18. Langkah selanjutnya memberikan style pada element span di dalam element div class product-price:
+    .products .product-price span{
+      text-decoration: line-through;
+      font-weight: lighter;
+      font-size: 1rem;
+    }
+
+    Penjelasan sintaks:
+    - text-decoration: line-throught; untuk memberikan font(teks) decorasi garis melintang
+    - font-weight: lighter; untuk memberikan elemen span tingkat ketebalannya menjadi lighter lebih ringan di bandingkan ketebalan default 
+    - font-size: 1rem; untuk menjadikan ukuran elemen span font(teks)nya berukuran 1rem(16px)
+
+
+Membuat fitur shoping cart :
+
+1. Buka file index.html dan cari section search di dalam element nav class navbar buatkan di bawahnya untuk shoping-cart, berikut adalah sintaks htmlnya :
+        <div class="shopping-cart">
+            <div class="cart-item">
+                <img src="img/products/1.png" alt="Product 1">
+                <div class="item-detail">
+                    <h3>Product 1</h3>
+                    <div class="item-price">IDR 30K</div>
+                </div>
+                <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+        </div>
+
+   Save program 
+
+2. Langkah selanjutnya membuatkan style pada element div class shopping-cart, tuliskan di barisan group navbar style di bawahnya : 
+   .shopping-cart {
+     position: absolute;
+     top: 100%;
+     right: 0;
+     height: 100vh;
+     width: 35rem;
+     padding: 0 1.5rem;
+     background-color: #fff;
+     color: var(--bg);
+     transition: 0.3s;
+   }
+
+   Penjelasan sintaks:
+   - position: absolute; untuk menjadikan element div class shopping-cart posisinya menjadi absolute dengan syarat induknya non-static
+   - top: 100%; untuk menjadikan element posisi tingginya sama dengan element pembungkusnya atau induknya yaitu element nav class navbar tetapi di luar karena absolute 
+   - right: 0; untuk menjadikan element posisi kanannya keluar dari element pembungkusnya atau induxnya yaitu element nav class navbar 
+   - hegiht: 100vh; untuk membuat elmeent div class shopping-cart ukuran tingginya menjadi 100vh(viewport height) sama dengan tinggi kontennya
+   - width: 35rem; untuk membuat ukuran elemen div class shopping-cart menjadi 35rem(560px)
+   - padding: 0 1.5rem; untuk membuat padding pada element div class shopping-cart menjadi atas dan bawah 0 , kiri dan kanan 1.5rem(24px)
+   - background-color: #fff; untuk menjadikan element div class shopping-cart warna latarnya menjadi warna yang di inginkan 
+   - color: var(--bg); untuk menjadikan warna tulisan pada element div class shopping-cart menjadi berwarna yang di inginkan 
+   - transition: 0.3s; untuk menjadikan efek interaktiv atau transisinya selama 0.3s 
+
+3. Langkah selanjutnya merapihkan tampilan img pada element div class shopping-cart : 
+   .shopping-cart img {
+      height: 6rem;
+      border-radius: 50%;
+   }
+
+   Penjelasan sintaks:
+   - height: 6rem; untuk menjadikan tinggi element img menjadi ukurannya 6rem(96px);
+   - border-radius: 50%; untuk menjadikan element img border-radius atau sisi samping lengkungnya menjadi 50% atau bulat 
+
+3. Langkah selanjutnya membuat style pada element div class cart-item : 
+   .shopping-cart .cart-item {
+      margin: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed #666;
+      position: relative;
+   }
+
+   Penjelasan sintaks :
+   - margin: 2rem; untuk menjadikan margin pada element div class cart-item menjadi 2rem(32px) di setiap sisinya 
+   - display: flex; untuk mengatur element div class cart-item tampilannya di atur menjadi satu line 
+   - align-items: center; untuk menjadikan element div class cart-item element yang di kandungnya berada di tengah secara vertikal 
+   - gap: 1.5rem; untuk mengatur tata letak element yang di kandung pada element div class cart-item jaraknya menjadi 1.5rem(24px)
+   - padding-bottom: 1rem; untuk menjadikan element div class cart-item padding bawahnya mempunyai ukuran 1rem(16px)
+   - border-bottom: 1px dashed #666; untuk menjadikan element div class cart-item border bawahnya ukurannya 1px bergaris putus putus dan berwarna yang di inginkan 
+   - position: relative; untuk menjadikan element div class cart-item posisinya relative 
+
+4. Langkah selanjutnya mengatur style pada element h3 : 
+   .shopping-cart h3 {
+      font-size: 1.6rem;
+      padding-bottom: 0.5rem;
+   }
+
+   Penjelasan sintaks:
+   - font-size: 1.6rem; untuk menjadikan element h3 font(teks)nya ukurannya menjadi 1.6rem(25.6px)
+   - padding-bottom: 0.5rem; untuk menjadikan element h3 mempunyai padding bawah sebesar 0.5rem(8px)
+
+5. Langkah selanjutnya membuat style pada element div class item-price :
+   .shopping-cart .item-price {
+      font-size: 1.2rem;
+   }
+
+   Penjelasan sintaks :
+   - font-size: 1.2rem; untuk menjadikan element div class item-price ukuran tulisannya menjadi 1.2rem(19.2px) 
+
+6. langkah selanjutnya memberikan style pada element i class remove-item : 
+   .shopping-cart .remove-item {
+      position: absolute;
+      right: 1rem;
+      cursor: pointer;
+   }
+
+   Penjelasan sintaks:
+   - position: absolute; untuk mengatur element i class remove-item posisinya menjadi absolute dengan syarat element induknya harus non-static 
+   - right: 1rem; untuk menjadikan element i posisinya berada di kanan sebesar 1rem(16px)
+   - cursor: pointer; untuk menjadikan element i ketika mouse berada di atas element i maka akan berubah atau ada interaksinya
+
+7. Langkah selanjutnya memberikan intekasi ketika mouse berada di element i warnanya akan berubah : 
+   .shopping-cart .remove-item:hover {
+      color: var(--primary);
+   }
+
+   Penjelasan sintaks:
+   - color: var(--primary); untuk menjadikan element i class remove-item ketika di hover akan merubah warnanya menjadi warna yang di inginkan 
+
+   Save dan jalankan program 
+
+8. Langkah selanjutnya duplikat element div class cart-item sebanyak 2 kali untuk mensimulasikan jika terdapat barang yang di inginkan pada shopping-cart, berikut sintaksnya : 
+            <div class="cart-item">
+                <img src="img/products/1.png" alt="Product 1">
+                <div class="item-detail">
+                    <h3>Product 1</h3>
+                    <div class="item-price">IDR 30K</div>
+                </div>
+                <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+
+9. Langkah selanjutnya menghilangkan style element div class shopping-card, menghilangkannya bukan di hapus melainkan di buang keluar dari induxnya ke kanan, cukup hanya mengganti sintaks
+   right: 0; menjadi right: -100%; pada style .shopping-cart{} di file css.
+
+10. langkah selanjutnya membuatkan style untuk toggle javascript yang akan memunculkan elemnt div class shopping-cart : 
+    .shopping-cart.active {
+      right: 0;
+    }
+
+    Penjelasan sintaks:
+    - right: 0; akan menjadikan elemnet yang dibuang yaitu div class shopping-cart menjadi kembali pada induknya ini juga untuk mensimulasikan sintaks javascript toogle 
+
+11. Langkah selanjutnya membuatkan logika pada javascript berikut adalah sintaknya, sebelum menuliskan sintaks ubah id shopping-cart pada element div class navbar-extra menjadi id shopping-cart-button,
+    berikut adalah sintaksnya, tuliskan di bawah logika toggle search :
+      const shoppingCart = document.querySelector(".shopping-cart");
+
+      document.querySelector("#shopping-cart-button").onclick = (e) => {
+      shoppingCart.classList.toggle("active");
+      e.preventDefault();
+      };
+
+      Penjelasan sintaks :
+      - e.preventDefault(); untuk menjadikan element div navbar extra yang terdapat element a id shopping-cart button default scrolling otomatisnya di matikan 
+
+
+12 dan di dalam logika javascript untuk klik di luar area yang di inginkan akan menghapus class toogle tambahkan sintaks berikut ini :
+   const sc = document.querySelector("#shopping-cart-button");
+
+   dan tambahkan juga sintaks berikut ini untuk menghapusnya :
+   if (!sc.contains(e.target) && !shoppingCart.contains(e.target)) {
+      shoppingCart.classList.remove("active");
+   }
+
+Membuat fitur detail : 
+
+1. buka index.html untuk membuat fitur detail tuliskan sebelum javascript feather icons : 
+    <div class="modal" id="item-detail-modal">
+        <div class="modal-container">
+            <a href="#" class="close-icon"><i data-feather="x"></i></a>
+            <div class="modal-content">
+                <img src="img/products/1.png" alt="Product 1">
+                <div class="product-content">
+                    <h3>Product 1</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse ipsa illum aliquid debitis porro
+                        rerum dolorem rem similique laborum. Voluptates illo neque incidunt praesentium sapiente.</p>
+                    <div class="product-stars">
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" class="star-full"></i>
+                    </div>
+                    <div class="product-price">IDR 30K <span>IDR 55K</span></div>
+                    <a href="#"><i data-feather="shopping-cart">add to cart</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+2. Langkah selanjutnya membuatkan style untuk element div class modal, berikut adalah sintakasnya tuliskan sebelum media querie :
+      .modal{
+      display: flex;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      }
+
+   Penjelasan sintaks :
+   - display: flex; Untuk mengatur tampilannya menjadi flex agar element anaknya bisa bebas di atur 
+   - position: fixed; untuk mengatur posisi element div class modal menjadi fixed atau selalu mengikuti kemana layar berjalan
+   - z-index: 9999; untuk mengatur urutan tumpuk halaman web menjadikan element div class modal menjadi selalu yang paling di depan karena di atur menjadi 9999
+   - left: 0; untuk menjadikan element div class modal di geser ke kiri 0
+   - top: 0; untuk menggeser element div class modal di geser ke atas 0 
+   - width: 100%; untuk menjadikan element div class modal lebarnya sesuai dengan induknya atau pembungkusnya yaitu body html 
+   - height: 100%; untuk menjadikan element div class modal tingginya sesuai dengan induknya atau pembungkusnya yaitu body html   
+   - overflow: auto; untuk menambahkan scrollbar kanan atau kiri otomatis jika kontennya tidak mencukupi 
+   - background-color: rgba(0, 0, 0, 0.7); untuk menjadikan warna latar dari element div class modal berwarna yang di inginkan dan di atur menggunakan rgba untuk dapat mengatur 
+                       warna transparasinya sebesar 0.7 dari 1 yang artinya 1 itu warna solid 
+
+3. Langkah selanjutnya merapihkan style div class modal-container :
+   .modal-container {
+      position: relative;
+      background-color: #fefefe;
+      color: var(--bg);
+      margin: 15% auto;
+      padding: 1.2rem;
+      border: 1px solid #666;
+      width: 80%;
+   }
+
+   Penjelasan sintaks :
+   - position: relative; untuk menjadikan element div class modal-container posisinya di atas elemen div class modal tetapi tetap terikat 
+   - background-color: #fefefe; untuk menjadikan warna latar pada lement div class modal-container menjadi warna yang di inginkan #fefefe warna putih yang tidak terlalu putih 
+   - color: var(--bg); untuk menjadikan warna font(teks) menjadi warna yang di inginkan pada element div class modal-container 
+   - margin: 15% auto; untuk menjadikan margin pada element div class modal-container menjadi atas dan bawahnya 15% dari induknya yaitu element div class modal dan kiri dan kanannya 
+     di atur secara otomatis atau auto 
+   - padding: 1.2rem; untuk menjadikan padding keseluruhan di semua sisi element div class modal mempunyai ukuran sebesar 1.2rem(19.2px)
+   - border: 1px solid #666; untuk menjadikan elment div class modal-container mempunyai border keseluruhan yang ketebalannya 1px solid dan berwarna yang di inginkan 
+   - width: 80%; untuk menjadikan element div class modal-container mempunyai lebar berukuran 80% dari pembungkusnya yaitu div class modal
+
+4. Langkah selanjutnya mengatur style pada element a class close-icon : 
+   .modal-container .close-icon {
+      position: absolute;
+      right: 1rem;
+   }
+
+   Penjelasan sintaks:
+   - position: absolute; untuk menjadikan element a class close-icon keluar dari induknya karena div class modal-container adalah element non-static 
+   - right: 1rem; untuk mengatur element a class close-icon posisinya berada di kanan sebesar 1rem(16px)
+
+5. Langkah selanjutnya mengatur element div class modal-content yang terdapat pada element div class modal-container :
+   .modal-content {
+      display: flex;
+      flex-wrap: nowrap;
+   }
+
+   Penjelasan sintaks :
+   - display: flex; untuk mengatur element div class modal-content menjadi tampilannya flexible 
+   - flex-wrap: nowrap; untuk menjadikan element div class modal-content jika element anaknya tidak muat dengan pembungkusnya maka akan tetap di jadikan 1 baris 
+
+6. Memberikan style pada gambar atau element img :
+   .modal-content img{
+      height: 20rem;
+      margin-right: 2rem;
+      margin-bottom: 2rem;
+   }  
+
+   Penjelasan sintaks:
+   - height: 20rem; untuk menjadikan element img tingginya berukuran 20rem(320px)
+   - margin-right: 2rem; untuk menjadikan element img mempunyai margin kanan sebesar 2rem(32px)
+   - margin-bottom: 2rem; untuk menjadikan element img mempunyai margin bawah sebesar 2rem(32px)
+
+7. Langkah selanjutnya memberikan style pada element p :
+   .modal-content p {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      margin-top: 1.2rem;
+   }
+
+   Penjelasan sintaks:
+   - font-size: 1.2rem; untuk menjadikan element p mempunyai ukuran font(teks) sebesar 1.2rem(19.2px)
+   - line-height: 1.8rem; untuk menjadikan element p mempunyai tingi baris untuk tulisan sebesar 1.8rem(28.8px)
+   - margin-top: 1.2rem; untuk menjadikan element p mempunyai margin atas sebesar 1.2rem(19.2px)
+
+8. Memberikan style pada element a untuk keseluruhan element yang di kandungnya :
+   .modal-content a {
+      display: flex;
+      gap: 1rem;
+      width: 12rem;
+      background-color: var(--primary);
+      color: #fff;
+      margin-top: 1rem;
+      padding: 1rem 1.6rem;
+   }
+
+   Penjelasan sintaks : 
+   - display: flex; untuk menjadikan elment a elements yang di kandungnya akan di seting sejajar 
+   - gap: 1rem; untuk mengatur elements yang di kandung di dalam a berjarak 1rem(16px) dengan ukuran horizontal
+   - width: 12rem; untuk mengatur lebar element a menjadi berukuran 12rem(192px)
+   - background-color: var(--primary); untuk menjadikan element a memiliki warna latar sesuai dengan ketentuan
+   - color: #fff; untuk menjadikan warna tulisan pada element a menjadi warna yang di inginkan 
+   - margin-top: 1rem; untuk menjadikan element a mempunyai margin atas sebesar 1rem(16px)
+   - padding: 1rem 1.6rem; untuk menjadikan element a mempunyai padding atas dan bawah 1rem(16px) dan kiri dan kanan 1.6rem(25.6px)
+
+9. Langkah selanjutnya memperbaiki media queri untuk layar tablet, tuliskan sintaks berikut ini : 
+   .modal-content {
+      flex-wrap: wrap;
+   }
+
+   Penjelasan sintaks:
+   - flex-wrap: wrap; untuk menjadikan jika dibuak di layar tablets maka ketika element nya tidak mencukupi maka akan dibuatkan baris baru
+
+10. Langkah selanjutnya ubah sintaks element div class modal yaitu display: flex; menjadi none untuk mensimulasikan ketika mengklik button detail maka akan menampilkan modal box
+
+12. sebelum menuliskan sintaks javascript pergi ke file index.html dan cari element "<a href="#"><i data-feather="eye"></i></a>" dan tambahkan class maka akan menjadi 
+    "<a href="#" class="item-detail-button"><i data-feather="eye"></i></a>"
+
+13. Langkah selanjutnya buka file javascript dan ketikan sintaks berikut ini di paling bawah : 
+      const itemDetailModal = document.querySelector("#item-detail-modal");
+      const itemDetailButtons = document.querySelectorAll(".item-detail-button");
+
+      itemDetailButton.forEach((btn) => {
+      btn.onclick = (e) => {
+         itemDetailModal.style.display = "flex";
+         e.preventDefault();
+      };
+      });
+
+   Save dan jalankan program jika berhasil ketika mengkilk icon mata akan memunculkan detail tetapi tidak bisa di tutup 
+
+14. Langkah selanjutnya membuat animasi ketika detail muncul, buka file css dan ketikan sintaks berikut ini. tuliskan di paling bawah setelah media querie :
+   @keyframes animateModal {
+      from {
+         top: -300px;
+         oppacity: 0;
+      }
+      to {
+         top: 0;
+         oppacity: 1;
+      }
+   }
+
+   Save program 
+
+15. Langkah selanjutnya masih di file css dan pergi kebagian style .modal-container{} dan berikan sintaks berikut ini di bawahnya :
+    
+    animation: animateModal 0.5s;
+
+    Penjelasan sintaks :
+    - animation: animateModal 0.5s; untuk memanggil variabel keyframes dan menjadikannya tampil selama 0.5 detik 
+
+    Save dan jalankan file index.html klik icon mata ketika muncul maka akan keluar animasi dari atas ke bawah selama 0.5 detik 
+
+16. Pergi ke file javascript dan ketikan sintaks berikut ini untuk menjalankan interaksi tombol close, ketikan sintaks berikut ini di bawahnya :
+      
+      document.querySelector(".modal .close-icon").onclick = (e) => {
+      itemDetailModal.style.display = "none";
+      e.preventDefault();
+      };
+
+   Save dan jalankan program jika berhasil ketika muncul detail dan klik icon close maka akan menutupnya 
+
+17. Langkah selanjutnya untuk klik di luar area detail, berikut sintaks javascriptnya :
+      window.onclick = (e) => {
+      if (e.target === itemDetailModal) {
+         itemDetailModal.style.display = "none";
+      }
+      };
+   
+   Save dan jalankan program coba ketika detail keluar klik sembarang maka akan menutup detailnya 
